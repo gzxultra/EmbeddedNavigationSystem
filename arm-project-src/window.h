@@ -77,6 +77,7 @@ private slots:
     void weekendFormatChanged();
     void reformatHeaders();
     void reformatCalendarPage();
+    void showChangedDateOnTextBrowser();
 
 private:
     void createPreviewGroupBox();

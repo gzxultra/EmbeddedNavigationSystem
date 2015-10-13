@@ -152,6 +152,11 @@ void Window::weekendFormatChanged()
     calendar->setWeekdayTextFormat(Qt::Sunday, format);
 }
 //! [6]
+//!
+void Window::showChangedDateOnTextBrowser()
+{
+    textBrowser->setText(currentDateEdit->date().toString());
+}
 
 //! [7]
 void Window::reformatHeaders()
@@ -226,10 +231,14 @@ void Window::createPreviewGroupBox()
 void Window::createDateTimeEdit()
 {
     dateTimeEdit = new QDateTimeEdit;
+    dateTimeEdit->setDateTime(QDateTime::currentDateTime());
+   // dateTimeEdit->setForegroundRole(QDateTime::currentDateTime().toString());
 }
 void Window::createTextBrowser()
 {
     textBrowser = new QTextBrowser;
+    //textBrowser->setText(QDateTime::currentDateTime().toString());
+    textBrowser->setText(currentDateEdit->text());
 }
 
 //! [10]
@@ -388,6 +397,9 @@ void Window::createDatesGroupBox()
             calendar, SLOT(setSelectedDate(QDate)));
     connect(calendar, SIGNAL(selectionChanged()),
             this, SLOT(selectedDateChanged()));
+    //show it on text browser here.
+    connect(this, SIGNAL(selectedDateChanged()),
+            this, SLOT(showChangedDateOnTextBrowser()));
     connect(minimumDateEdit, SIGNAL(dateChanged(QDate)),
             this, SLOT(minimumDateChanged(QDate)));
     connect(maximumDateEdit, SIGNAL(dateChanged(QDate)),
