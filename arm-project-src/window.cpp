@@ -65,7 +65,8 @@ Window::Window()
     previewLayout->setRowMinimumHeight(0, calendar->sizeHint().height());
     previewLayout->setColumnMinimumWidth(0, calendar->sizeHint().width());
 
-    setWindowTitle(tr("Calendar Widget"));
+    //dateTimeLayout->SetDefaultConstraint;
+    setWindowTitle(tr("arm thermometer"));
 }
 //! [0]
 
@@ -155,7 +156,7 @@ void Window::weekendFormatChanged()
 //!
 void Window::showChangedDateOnTextBrowser()
 {
-    textBrowser->setText(currentDateEdit->date().toString());
+    textBrowser->setText(currentDateEdit->date().toString() + "  " + dateTimeEdit->time().toString());
 }
 
 //! [7]
@@ -230,15 +231,25 @@ void Window::createPreviewGroupBox()
 //!
 void Window::createDateTimeEdit()
 {
+   // tempGroupBox = new QGroupBox;
     dateTimeEdit = new QDateTimeEdit;
     dateTimeEdit->setDateTime(QDateTime::currentDateTime());
    // dateTimeEdit->setForegroundRole(QDateTime::currentDateTime().toString());
+    connect(dateTimeEdit, SIGNAL(dateTimeChanged(QDateTime)),
+            this, SLOT(showChangedDateOnTextBrowser()));
+    connect(dateTimeEdit, SIGNAL(dateChanged(QDate)),
+            this, SLOT(showChangedDateOnTextBrowser()));
+    dateTimeLayout = new QVBoxLayout;
+    dateTimeLayout->addWidget(dateTimeEdit);
+
+    pushButton = new QPushButton;
+    dateTimeLayout->addWidget(pushButton);
 }
 void Window::createTextBrowser()
 {
     textBrowser = new QTextBrowser;
     //textBrowser->setText(QDateTime::currentDateTime().toString());
-    textBrowser->setText(currentDateEdit->text());
+    textBrowser->setText(currentDateEdit->date().toString() + "  " + dateTimeEdit->time().toString());
 }
 
 //! [10]
@@ -398,7 +409,7 @@ void Window::createDatesGroupBox()
     connect(calendar, SIGNAL(selectionChanged()),
             this, SLOT(selectedDateChanged()));
     //show it on text browser here.
-    connect(this, SIGNAL(selectedDateChanged()),
+    connect(calendar, SIGNAL(selectionChanged()),
             this, SLOT(showChangedDateOnTextBrowser()));
     connect(minimumDateEdit, SIGNAL(dateChanged(QDate)),
             this, SLOT(minimumDateChanged(QDate)));

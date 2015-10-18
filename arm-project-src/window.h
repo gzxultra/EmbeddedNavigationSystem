@@ -50,10 +50,12 @@ class QComboBox;
 class QDate;
 class QDateEdit;
 class QGridLayout;
+class QVBoxLayout;
 class QGroupBox;
 class QLabel;
 class QDateTimeEdit;
 class QTextBrowser;
+class QPushButton;
 QT_END_NAMESPACE
 
 //! [0]
@@ -90,9 +92,12 @@ private:
 
     QGroupBox *previewGroupBox;
     QGridLayout *previewLayout;
+    QVBoxLayout *dateTimeLayout;
     QCalendarWidget *calendar;
     QDateTimeEdit *dateTimeEdit;
     QTextBrowser *textBrowser;
+
+    QPushButton *pushButton;
 
     QGroupBox *generalOptionsGroupBox;
     QLabel *localeLabel;
