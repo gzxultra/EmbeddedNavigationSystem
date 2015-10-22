@@ -50,8 +50,13 @@ void Widget::queryData()
             QString result = query.value(0).toString() + ' ';
             result += query.value(1).toString();
             ui->textBrowser->append(result);
+            paintEvent();
         }
        }
 }
 
-
+void Widget::paintEvent()
+{
+    QPainter painter(this); //this为绘图设备，即表明在该部件上进行绘制
+    painter.drawLine(QPoint(0, 0), QPoint(100, 100));
+}

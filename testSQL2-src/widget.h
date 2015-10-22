@@ -11,10 +11,17 @@
 #include <QtDebug>
 #include <QSqlDriver>
 #include <QSqlRecord>
+#include <QPaintEvent>
+#include <Qpainter>
+#include <QPoint>
+
+bool createConnection();
+
 
 namespace Ui {
 class Widget;
 }
+
 
 class Widget : public QWidget
 {
@@ -27,9 +34,13 @@ public:
 private:
     Ui::Widget *ui;
 
+protected:
+    void paintEvent();
+
 private slots:
    void insertData();
    void queryData();
 };
+
 
 #endif // WIDGET_H

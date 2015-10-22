@@ -1,7 +1,7 @@
 #include "widget.h"
 #include <QApplication>
 
-bool createConnection();
+
 
 int main(int argc, char *argv[])
 {
@@ -40,3 +40,4 @@ bool createConnection()
 
     return true;
 }
+

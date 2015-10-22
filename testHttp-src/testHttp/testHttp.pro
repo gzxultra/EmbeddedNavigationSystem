@@ -1,24 +1,21 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2015-10-18T00:46:51
+# Project created by QtCreator 2015-10-21T21:34:34
 #
 #-------------------------------------------------
 
 QT       += core gui
-QT       += sql
-
+QT       += network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = testSQL2
+TARGET = testHttp
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp \
-    thread.cpp
+        widget.cpp
 
-HEADERS  += widget.h \
-    thread.h
+HEADERS  += widget.h
 
 FORMS    += widget.ui
