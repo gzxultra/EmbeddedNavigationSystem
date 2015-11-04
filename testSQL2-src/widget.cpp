@@ -25,7 +25,7 @@ void Widget::insertData()
     for(int i=0; i<5; i++)
     {
         query.bindValue(0, i+1);
-        query.bindValue(1, rand()%35 +15);
+        query.bindValue(1, i);
 
         success = query.exec();
         if(!success)
