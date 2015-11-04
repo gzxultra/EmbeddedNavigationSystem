@@ -2,53 +2,53 @@
 #include "ui_widget.h"
 
 Widget::Widget(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::Widget)
+	QWidget(parent),
+	ui(new Ui::Widget)
 {
-    ui->setupUi(this);
+	ui->setupUi(this);
 }
 
 Widget::~Widget()
 {
-    delete ui;
+	delete ui;
 }
 
 void Widget::insertData()
 {
-    QSqlQuery query;
-    query.exec("select * from automobil");
-    QSqlRecord rec = query.record();
-    qDebug()<< QObject::tr("automobil 表字段数：")<<rec.count();
-    bool success;
-    query.prepare("insert into automobil values(?, ?)");
-    for(int i=0; i<5; i++)
-    {
-        query.bindValue(0, i+1);
-        query.bindValue(1, i);
+	QSqlQuery query;
+	query.exec("select * from automobil");
+	QSqlRecord rec = query.record();
+	qDebug() << QObject::tr("automobil 表字段数：") << rec.count();
+	bool success;
+	query.prepare("insert into automobil values(?, ?)");
+	for (int i = 0; i < 5; i++)
+	{
+		query.bindValue(0, i + 1);
+		query.bindValue(1, i);
 
-        success = query.exec();
-        if(!success)
-        {
-            QSqlError lastError = query.lastError();
-            qDebug()<<lastError.driverText()<<QString(QObject::tr("插入失败!\n"));
-        }
-    }
+		success = query.exec();
+		if (!success)
+		{
+			QSqlError lastError = query.lastError();
+			qDebug() << lastError.driverText() << QString(QObject::tr("插入失败!\n"));
+		}
+	}
 }
 
 void Widget::queryData()
 {
-    QSqlQuery query;
-    QString result;
-    query.exec("SELECT id, temperature FROM automobil");
-    if(!query.isActive())
-        QMessageBox::warning(this, tr("Database Error!"), query.lastError().text());
-    else{
-        while(query.next())
-        {
-            QString result = query.value(0).toString() + ' ';
-            result += query.value(1).toString();
-            ui->textBrowser->append(result);
-        }
-       }
+	QSqlQuery query;
+	QString result;
+	query.exec("SELECT id, temperature FROM automobil");
+	if (!query.isActive())
+		QMessageBox::warning(this, tr("Database Error!"), query.lastError().text());
+	else {
+		while (query.next())
+		{
+			QString result = query.value(0).toString() + ' ';
+			result += query.value(1).toString();
+			ui->textBrowser->append(result);
+		}
+	}
 }
 
