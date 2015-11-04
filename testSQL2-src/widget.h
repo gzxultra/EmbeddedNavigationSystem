@@ -34,9 +34,6 @@ public:
 private:
     Ui::Widget *ui;
 
-protected:
-    void paintEvent();
-
 private slots:
    void insertData();
    void queryData();

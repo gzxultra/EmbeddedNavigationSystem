@@ -1,17 +1,38 @@
 #include "widget.h"
 #include <QApplication>
-
-
+#include <QSplashScreen>
+#include "sht11_test.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QTextCodec::setCodecForLocale(QTextCodec::codecForLocale());
-    //if(!createConnection())
-      //  return 1;
-    createConnection();
+
+    QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+    QTextCodec::setCodecForTr(codec);
+
+    QSplashScreen *splash = new QSplashScreen;
+    splash->setPixmap(QPixmap("splash.png").scaled(400,300,Qt::KeepAspectRatio));
+    splash->show();
+
+    Qt::Alignment topRight = Qt::AlignRight | Qt::AlignTop;
+    splash->showMessage(QObject::tr("Setting up the main window..."));
     Widget w;
+    splash->showMessage(QObject::tr("loading modules..."), topRight, Qt::white);
+    createConnection();
+    //callSensor();
+    splash->showMessage(QObject::tr("Establishing connections..."));
+
     w.show();
+    splash->finish(&w);
+    delete splash;
+
+
+
+
+
+
+
+
     return a.exec();
 }
 

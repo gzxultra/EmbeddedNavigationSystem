@@ -15,10 +15,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        widget.cpp \
-    thread.cpp
+        widget.cpp
 
 HEADERS  += widget.h \
-    thread.h
+    sht11_test.h
 
 FORMS    += widget.ui
+
+RESOURCES += \
+    source.qrc

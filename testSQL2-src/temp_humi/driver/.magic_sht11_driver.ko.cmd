@@ -1,0 +1,1 @@
+cmd_/home/sprife/UP-Magic/UP-Magic_Moudles/temp_humi/driver/magic_sht11_driver.ko := arm-linux-ld -EL -r    -o /home/sprife/UP-Magic/UP-Magic_Moudles/temp_humi/driver/magic_sht11_driver.ko /home/sprife/UP-Magic/UP-Magic_Moudles/temp_humi/driver/magic_sht11_driver.o /home/sprife/UP-Magic/UP-Magic_Moudles/temp_humi/driver/magic_sht11_driver.mod.o
