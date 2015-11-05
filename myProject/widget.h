@@ -34,14 +34,18 @@ public:
     ~Widget();
     bool createConnection();
 
+signals:
+    void finished();
 
 private:
     Ui::Widget *ui;
+    class QNetworkAccessManager *nam;
 
 private slots:
     void insertData();
     void queryData();
     void httpPost();
+    void finishedSlot(QNetworkReply *);
 };
 
 

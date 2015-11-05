@@ -8,6 +8,10 @@ Widget::Widget(QWidget *parent) :
 	ui->setupUi(this);
     //ui->textBrowser->setAlignment(Qt::AlignCenter);
     //ui->textBrowser->setText(QString(QObject::tr("\t\t智能温度计")));
+
+    nam = new QNetworkAccessManager(this);
+    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
+                     this, SLOT(finishedSlot(QNetworkReply*)));
 }
 
 Widget::~Widget()
@@ -32,6 +36,13 @@ void Widget::queryData()
             ui->textBrowser->append(result);
         }
     }
+
+    //post action start
+    QUrl url("https://api.submail.cn/message/xsend.json");
+    QByteArray append("appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
+    //QNetworkReply* reply = nam->get(QNetworkRequest(url));
+    QNetworkReply* reply = nam->post(QNetworkRequest(url), append);
+    ui->textBrowser->append(reply->readAll());
 }
 void Widget::insertData()
 {
@@ -84,4 +95,45 @@ bool Widget::createConnection()
 void Widget::httpPost()
 {
 
+}
+
+
+void Widget::finishedSlot(QNetworkReply *reply)
+{
+#if 1
+    // Reading attributes of the reply
+    // e.g. the HTTP status code
+    QVariant statusCodeV =
+        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+    // Or the target URL if it was a redirect:
+    QVariant redirectionTargetUrl =
+        reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    // see CS001432 on how to handle this
+
+    // no error received?
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        // read data from QNetworkReply here
+
+        // Example 1: Creating QImage from the reply
+        //QImageReader imageReader(reply);
+        //QImage pic = imageReader.read();
+
+        // Example 2: Reading bytes form the reply
+        QByteArray bytes = reply->readAll();  // bytes
+        //QString string(bytes); // string
+        QString string = QString::fromUtf8(bytes);
+
+        ui->textBrowser->setText(string);
+    }
+    // Some http error received
+    else
+    {
+        // handle errors here
+    }
+
+    // We receive ownership of the reply object
+    // and therefore need to handle deletion.
+    reply->deleteLater();
+#endif
 }
