@@ -43,7 +43,7 @@ void Widget::queryData()
     QByteArray append("appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
     append.append("&vars={\"code\":\""+ QDateTime::currentDateTime().toString()+"\"}");
     qDebug()<<append;
-    //QNetworkReply* reply = nam->get(QNetworkRequest(url));
+
     //QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
     QNetworkRequest request(url);
     //request.setHeader("User-Agent", "Mozilla/5.0");
@@ -58,7 +58,7 @@ void Widget::insertData()
     qDebug() << QObject::tr("automobil 表字段数：") << rec.count();
     bool success;
     query.prepare("insert into automobil values(?, ?)");
-    for (int i = 0; i < 5; i++)
+    for (int i = 5; i < 10; i++)
     {
         query.bindValue(0, i + 1);
         query.bindValue(1, i);
