@@ -39,9 +39,15 @@ void Widget::queryData()
 
     //post action start
     QUrl url("https://api.submail.cn/message/xsend.json");
+
     QByteArray append("appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
+    append.append("&vars={\"code\":\""+ QDateTime::currentDateTime().toString()+"\"}");
+    qDebug()<<append;
     //QNetworkReply* reply = nam->get(QNetworkRequest(url));
-    QNetworkReply* reply = nam->post(QNetworkRequest(url), append);
+    //QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
+    QNetworkRequest request(url);
+    //request.setHeader("User-Agent", "Mozilla/5.0");
+    QNetworkReply* reply = nam->post(request, append);
     ui->textBrowser->append(reply->readAll());
 }
 void Widget::insertData()

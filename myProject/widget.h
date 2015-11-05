@@ -7,6 +7,7 @@
 #include <QTextCodec>
 
 #include <QTime>
+#include <QDateTime>
 
 #include <QtDebug>
 
