@@ -20,36 +20,102 @@
    <property name="sizeConstraint">
     <enum>QLayout::SetNoConstraint</enum>
    </property>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="insertButton">
-     <property name="text">
-      <string>Insert</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="queryButton">
-     <property name="text">
-      <string>Query</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" colspan="3">
+   <item row="4" column="0">
     <widget class="QTextBrowser" name="textBrowser"/>
    </item>
-   <item row="2" column="2">
+   <item row="8" column="0">
+    <widget class="QPushButton" name="messageButton">
+     <property name="text">
+      <string>Message</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2">
+    <widget class="QPushButton" name="baiduWeatherButton">
+     <property name="text">
+      <string>BaiduWeather</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>实验室智能温度计</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="3">
     <widget class="QPushButton" name="clearButton">
      <property name="text">
       <string>Clear</string>
      </property>
     </widget>
    </item>
-   <item row="0" column="1">
-    <widget class="QLabel" name="label">
+   <item row="7" column="3">
+    <widget class="QPushButton" name="pushButton">
      <property name="text">
-      <string>实验室智能温度计</string>
+      <string>PushButton</string>
      </property>
     </widget>
+   </item>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="insertButton">
+     <property name="text">
+      <string>Insert</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2">
+    <widget class="QPushButton" name="queryButton">
+     <property name="text">
+      <string>Query</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="3">
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Panel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <property name="showGrid">
+      <bool>false</bool>
+     </property>
+     <property name="gridStyle">
+      <enum>Qt::NoPen</enum>
+     </property>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </row>
+    </widget>
+   </item>
+   <item row="1" column="3">
+    <widget class="QLineEdit" name="lineEdit"/>
    </item>
   </layout>
  </widget>
@@ -104,9 +170,75 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>messageButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>pushMessage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>baiduWeatherButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>getBaiduWeather()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>199</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>tableWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>168</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>177</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>editingFinished()</signal>
+   <receiver>tableWidget</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>329</x>
+     <y>51</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>329</x>
+     <y>145</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>insertData()</slot>
   <slot>queryData()</slot>
+  <slot>pushMessage()</slot>
+  <slot>getBaiduWeather()</slot>
  </slots>
 </ui>

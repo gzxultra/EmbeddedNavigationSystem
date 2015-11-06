@@ -47,6 +47,11 @@ private slots:
     void queryData();
     void httpPost();
     void finishedSlot(QNetworkReply *);
+
+    void pushMessage();
+    void getBaiduWeather();
+
+    void xmlParser(QString xmlData);
 };
 
 
