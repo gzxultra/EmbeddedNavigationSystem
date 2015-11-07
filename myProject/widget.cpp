@@ -8,7 +8,7 @@ Widget::Widget(QWidget *parent) :
 	ui->setupUi(this);
     //ui->textBrowser->setAlignment(Qt::AlignCenter);
     //ui->textBrowser->setText(QString(QObject::tr("\t\t智能温度计")));
-    ui->tableWidget->hide();
+    ui->listWidget->hide();
     nam = new QNetworkAccessManager(this);
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
                      this, SLOT(finishedSlot(QNetworkReply*)));
@@ -38,7 +38,6 @@ void Widget::queryData()
     }
 }
 
-
 void Widget::pushMessage()
 {
     //post action start
@@ -60,19 +59,85 @@ void Widget::pushMessage()
 
 void Widget::getBaiduWeather()
 {
-    //post action start
+    // post action start
     QUrl url("http://api.map.baidu.com/telematics/v3/weather?");
 
     QByteArray append("location=南通&output=xml&ak=YSGcdwW38tmEKRQvYzvuKDCu");
 
     qDebug()<<QObject::tr(append);
 
-    //QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
+    // QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
     QNetworkRequest request(url);
-    //request.setRawHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1");
+    // request.setRawHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1");
     QNetworkReply* reply = nam->post(request, append);
-    qDebug()<<reply;
+    // qDebug()<<reply;
     ui->textBrowser->append(reply->readAll());
+}
+
+void Widget::placeSuggestion()
+{
+
+/*
+    QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+    QTextCodec::setCodecForTr(codec);
+
+    QUrl url("http://api.map.baidu.com/place/v2/suggestion?");
+    url = QUrl::toPercentEncoding(url.toString());
+    qDebug()<<url;
+
+    QByteArray append;
+
+    append.append("query=");
+    append.append(ui->lineEdit->text());
+    append.append("&region=全国&output=json&ak=PAWBPVqwwomy8UBoeeUm9dfo");
+    //qDebug()<<QObject::tr(append);
+
+    // QByteArray append("query=beijing&region=131&output=json&ak=YSGcdwW38tmEKRQvYzvuKDCu");
+    // qDebug()<< append;
+    append = append.toPercentEncoding();
+
+    QNetworkRequest request(url);
+    qDebug()<<QObject::tr(append);
+
+    QNetworkReply* reply = nam->post(request, "");
+    reply = nam->post();
+    qDebug()<<reply->readAll();
+    ui->textBrowser->setText(reply->readAll());
+    ui->listWidget->clear();
+    ui->listWidget->addItem("hello");
+    */
+    // only need to encode Chinese character parameters
+    //QString rawInput = ui->lineEdit->text();
+    QByteArray input;
+    this->PercentEncoding2ByteArray(ui->lineEdit->text(), input);
+    qDebug()<<input;
+
+
+    QString region = QByteArray("全国").toPercentEncoding();
+
+    QByteArray originRequest = "http://api.map.baidu.com/place/v2/suggestion?";
+    originRequest.append("query=");
+    originRequest.append(input);
+    originRequest.append("&region=");
+    originRequest.append(region);
+    originRequest.append("&output=json&ak=PAWBPVqwwomy8UBoeeUm9dfo");
+
+    QUrl url = QUrl(originRequest);
+
+
+    qDebug()<<url;
+    QNetworkRequest request(url);
+    // qDebug()<<QObject::tr(append);
+
+    QNetworkReply* reply = nam->post(request, "");
+    qDebug()<<reply->readAll();
+    ui->textBrowser->setText(reply->readAll());
+    ui->listWidget->clear();
+    ui->listWidget->addItem("hello");
+
+
+
+
 }
 
 void Widget::insertData()
@@ -123,10 +188,6 @@ bool Widget::createConnection()
     return true;
 }
 
-void Widget::httpPost()
-{
-
-}
 
 void Widget::xmlParser(QString xmlData){
 
@@ -171,3 +232,30 @@ void Widget::finishedSlot(QNetworkReply *reply)
     reply->deleteLater();
 #endif
 }
+
+
+void Widget::PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut)
+{
+    for(int i=0; i<strInput.length();)
+    {
+        if (0==QString::compare(strInput.mid(i,1), QString("%")))
+        {
+            if ((i+2)<strInput.length())
+            {
+                ByteArrayOut.append(strInput.mid(i+1,2).toShort(0,16));
+                i=i+3;
+            }
+            else
+            {
+                ByteArrayOut.append(strInput.mid(i,1));
+                i++;
+            }
+        }
+        else
+        {
+            ByteArrayOut.append(strInput.mid(i,1));
+            i++;
+        }
+    }//For end
+
+}// PercentEncoding2ByteArray end

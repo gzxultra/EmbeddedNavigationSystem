@@ -16,110 +16,139 @@
   <property name="layoutDirection">
    <enum>Qt::LeftToRight</enum>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <property name="sizeConstraint">
-    <enum>QLayout::SetNoConstraint</enum>
+  <widget class="QPushButton" name="messageButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>260</y>
+     <width>101</width>
+     <height>32</height>
+    </rect>
    </property>
-   <item row="4" column="0">
-    <widget class="QTextBrowser" name="textBrowser"/>
-   </item>
-   <item row="8" column="0">
-    <widget class="QPushButton" name="messageButton">
-     <property name="text">
-      <string>Message</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="2">
-    <widget class="QPushButton" name="baiduWeatherButton">
-     <property name="text">
-      <string>BaiduWeather</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="2">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>实验室智能温度计</string>
-     </property>
-    </widget>
-   </item>
-   <item row="8" column="3">
-    <widget class="QPushButton" name="clearButton">
-     <property name="text">
-      <string>Clear</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="3">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string>PushButton</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="0">
-    <widget class="QPushButton" name="insertButton">
-     <property name="text">
-      <string>Insert</string>
-     </property>
-    </widget>
-   </item>
-   <item row="7" column="2">
-    <widget class="QPushButton" name="queryButton">
-     <property name="text">
-      <string>Query</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="3">
-    <widget class="QTableWidget" name="tableWidget">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="autoFillBackground">
-      <bool>true</bool>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::Panel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <property name="showGrid">
-      <bool>false</bool>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::NoPen</enum>
-     </property>
-     <row>
-      <property name="text">
-       <string>1</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>2</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>3</string>
-      </property>
-     </row>
-     <row>
-      <property name="text">
-       <string>4</string>
-      </property>
-     </row>
-    </widget>
-   </item>
-   <item row="1" column="3">
-    <widget class="QLineEdit" name="lineEdit"/>
-   </item>
-  </layout>
+   <property name="text">
+    <string>Message</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="baiduWeatherButton">
+   <property name="geometry">
+    <rect>
+     <x>131</x>
+     <y>260</y>
+     <width>131</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>BaiduWeather</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>142</x>
+     <y>12</y>
+     <width>104</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>实验室智能温度计</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="clearButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>260</y>
+     <width>111</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>226</y>
+     <width>111</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="insertButton">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>226</y>
+     <width>101</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Insert</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="queryButton">
+   <property name="geometry">
+    <rect>
+     <x>131</x>
+     <y>226</y>
+     <width>131</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Query</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>70</y>
+     <width>161</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="textBrowser">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>40</y>
+     <width>181</width>
+     <height>171</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>90</y>
+     <width>161</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>pushButton</tabstop>
+  <tabstop>clearButton</tabstop>
+  <tabstop>textBrowser</tabstop>
+  <tabstop>insertButton</tabstop>
+  <tabstop>queryButton</tabstop>
+  <tabstop>messageButton</tabstop>
+  <tabstop>baiduWeatherButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -171,14 +200,14 @@
    </hints>
   </connection>
   <connection>
-   <sender>messageButton</sender>
+   <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>Widget</receiver>
-   <slot>pushMessage()</slot>
+   <slot>placeSuggestion()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>69</x>
-     <y>279</y>
+     <x>315</x>
+     <y>241</y>
     </hint>
     <hint type="destinationlabel">
      <x>199</x>
@@ -204,33 +233,33 @@
   </connection>
   <connection>
    <sender>lineEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>tableWidget</receiver>
+   <signal>textEdited(QString)</signal>
+   <receiver>listWidget</receiver>
    <slot>show()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>168</x>
-     <y>177</y>
+     <x>300</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>313</x>
-     <y>177</y>
+     <x>300</x>
+     <y>150</y>
     </hint>
    </hints>
   </connection>
   <connection>
    <sender>lineEdit</sender>
-   <signal>editingFinished()</signal>
-   <receiver>tableWidget</receiver>
-   <slot>close()</slot>
+   <signal>textChanged(QString)</signal>
+   <receiver>Widget</receiver>
+   <slot>placeSuggestion()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>329</x>
-     <y>51</y>
+     <x>300</x>
+     <y>80</y>
     </hint>
     <hint type="destinationlabel">
-     <x>329</x>
-     <y>145</y>
+     <x>199</x>
+     <y>149</y>
     </hint>
    </hints>
   </connection>
@@ -240,5 +269,6 @@
   <slot>queryData()</slot>
   <slot>pushMessage()</slot>
   <slot>getBaiduWeather()</slot>
+  <slot>placeSuggestion()</slot>
  </slots>
 </ui>

@@ -22,6 +22,10 @@
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
+// class of xml parser
+// #include <QtXml/QXml
+
+
 namespace Ui {
 class Widget;
 }
@@ -41,17 +45,20 @@ signals:
 private:
     Ui::Widget *ui;
     class QNetworkAccessManager *nam;
+    void PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut);
+    void xmlParser(QString xmlData);
 
 private slots:
     void insertData();
     void queryData();
-    void httpPost();
+
     void finishedSlot(QNetworkReply *);
 
     void pushMessage();
     void getBaiduWeather();
+    void placeSuggestion();
 
-    void xmlParser(QString xmlData);
+
 };
 
 
