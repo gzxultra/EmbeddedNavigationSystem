@@ -1,4 +1,4 @@
-# Qt embeded software
+# Qt embedded software
 based on s3c2410(arm9) and themometer sensor, with Qt GUI
 
 temporarily it looks like that,
