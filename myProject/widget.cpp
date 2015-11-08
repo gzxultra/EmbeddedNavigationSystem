@@ -9,8 +9,10 @@ Widget::Widget(QWidget *parent) :
     //ui->textBrowser->setAlignment(Qt::AlignCenter);
     //ui->textBrowser->setText(QString(QObject::tr("\t\t智能温度计")));
     ui->listWidget->hide();
+
+
     nam = new QNetworkAccessManager(this);
-    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),
+    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),\
                      this, SLOT(finishedSlot(QNetworkReply*)));
 }
 
@@ -62,57 +64,42 @@ void Widget::getBaiduWeather()
     // post action start
     QUrl url("http://api.map.baidu.com/telematics/v3/weather?");
 
-    QByteArray append("location=南通&output=xml&ak=YSGcdwW38tmEKRQvYzvuKDCu");
+    QByteArray append("location=北京&output=xml&ak=YSGcdwW38tmEKRQvYzvuKDCu");
 
-    qDebug()<<QObject::tr(append);
 
-    // QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
+
+
     QNetworkRequest request(url);
     // request.setRawHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1");
     QNetworkReply* reply = nam->post(request, append);
-    // qDebug()<<reply;
-    ui->textBrowser->append(reply->readAll());
+
+
+
+    qDebug()<<response;
+    QXmlStreamReader reader(response);
+
+    //qDebug()<<"code:"<<reader.lineNumber();
+
+    //ui->textBrowser->setText(data);
+    //QFile xmlFile("../../../baiduweather.xml");
+    QFile xmlFile("baiduweather.xml");
+    if(!xmlFile.open(QIODevice::WriteOnly))
+    {
+        std::cerr << "Cannot open file for writing:"<< qPrintable(xmlFile.errorString())<<std::endl;
+        return;
+    }
+
+    QTextStream out(&xmlFile);
+
+    out<<response;
+    xmlFile.close();
+
 }
 
 void Widget::placeSuggestion()
 {
 
-/*
-    QTextCodec *codec = QTextCodec::codecForName("UTF-8");
-    QTextCodec::setCodecForTr(codec);
-
-    QUrl url("http://api.map.baidu.com/place/v2/suggestion?");
-    url = QUrl::toPercentEncoding(url.toString());
-    qDebug()<<url;
-
-    QByteArray append;
-
-    append.append("query=");
-    append.append(ui->lineEdit->text());
-    append.append("&region=全国&output=json&ak=PAWBPVqwwomy8UBoeeUm9dfo");
-    //qDebug()<<QObject::tr(append);
-
-    // QByteArray append("query=beijing&region=131&output=json&ak=YSGcdwW38tmEKRQvYzvuKDCu");
-    // qDebug()<< append;
-    append = append.toPercentEncoding();
-
-    QNetworkRequest request(url);
-    qDebug()<<QObject::tr(append);
-
-    QNetworkReply* reply = nam->post(request, "");
-    reply = nam->post();
-    qDebug()<<reply->readAll();
-    ui->textBrowser->setText(reply->readAll());
-    ui->listWidget->clear();
-    ui->listWidget->addItem("hello");
-    */
-    // only need to encode Chinese character parameters
-    //QString rawInput = ui->lineEdit->text();
-    QByteArray input;
-    this->PercentEncoding2ByteArray(ui->lineEdit->text(), input);
-    qDebug()<<input;
-
-
+    QString input = ui->lineEdit->text();
     QString region = QByteArray("全国").toPercentEncoding();
 
     QByteArray originRequest = "http://api.map.baidu.com/place/v2/suggestion?";
@@ -120,24 +107,40 @@ void Widget::placeSuggestion()
     originRequest.append(input);
     originRequest.append("&region=");
     originRequest.append(region);
-    originRequest.append("&output=json&ak=PAWBPVqwwomy8UBoeeUm9dfo");
+    originRequest.append("&output=xml&ak=PAWBPVqwwomy8UBoeeUm9dfo");
 
     QUrl url = QUrl(originRequest);
 
 
-    qDebug()<<url;
+    //qDebug()<<url;
     QNetworkRequest request(url);
     // qDebug()<<QObject::tr(append);
 
     QNetworkReply* reply = nam->post(request, "");
-    qDebug()<<reply->readAll();
-    ui->textBrowser->setText(reply->readAll());
+
+
+
+    ui->textBrowser->setText(response);
+    QFile xmlFile("place_suggestion_response.xml");
+    if(!xmlFile.open(QIODevice::WriteOnly))
+    {
+        std::cerr << "Cannot open file for writing:"<< qPrintable(xmlFile.errorString())<<std::endl;
+        return;
+    }
+
+    QTextStream out(&xmlFile);
+
+    out<<response;
+    //xmlFile.close();
+
+}
+
+
+void Widget::myXmlParser(QXmlStreamReader xmlData){
     ui->listWidget->clear();
-    ui->listWidget->addItem("hello");
-
-
-
-
+    qint64 data = xmlData.columnNumber();
+    qDebug()<<"code"<<data;
+    //ui->listWidget->addItem(QByteArray(data));
 }
 
 void Widget::insertData()
@@ -189,10 +192,6 @@ bool Widget::createConnection()
 }
 
 
-void Widget::xmlParser(QString xmlData){
-
-}
-
 void Widget::finishedSlot(QNetworkReply *reply)
 {
 #if 1
@@ -208,6 +207,7 @@ void Widget::finishedSlot(QNetworkReply *reply)
     // no error received?
     if (reply->error() == QNetworkReply::NoError)
     {
+        flag = true;
         // read data from QNetworkReply here
 
         // Example 1: Creating QImage from the reply
@@ -219,7 +219,10 @@ void Widget::finishedSlot(QNetworkReply *reply)
         //QString string(bytes); // string
         QString string = QString::fromUtf8(bytes);
 
-        ui->textBrowser->setText(string);
+
+        //Very Important here!
+        //ui->textBrowser->setText(string);
+        response = string;
     }
     // Some http error received
     else
@@ -259,3 +262,50 @@ void Widget::PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayO
     }//For end
 
 }// PercentEncoding2ByteArray end
+
+void Widget::functionChooser()
+{
+
+    ui->baiduWeatherButton->hide();
+    ui->clearButton->hide();
+    ui->insertButton->hide();
+    ui->label->hide();
+    ui->label_2->hide();
+    ui->label_3->hide();
+    ui->label_4->hide();
+    ui->lineEdit->hide();
+    ui->listWidget->hide();
+    ui->messageButton->hide();
+    ui->pushButton->hide();
+    ui->queryButton->hide();
+    ui->textBrowser->hide();
+
+    qint16 functionChoosed = ui->dial->value();
+    switch (functionChoosed)
+    {
+        case 1:
+            {
+                //百度天气
+                qDebug()<<QObject::tr("百度天气");
+                break;
+            };
+        case 2:
+            {
+                //百度地图
+                qDebug()<<QObject::tr("百度地图");
+                break;
+            };
+        case 3:
+            {
+                //周边推荐
+                qDebug()<<QObject::tr("周边推荐");
+                break;
+            };
+        default:
+        {
+            //some thing wrong
+            qDebug()<<QObject::tr("some thing wrong");
+        }
+    }
+
+}

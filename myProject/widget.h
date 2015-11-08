@@ -23,7 +23,18 @@
 #include <QNetworkRequest>
 
 // class of xml parser
-// #include <QtXml/QXml
+// #include <QXmlStreamReader>
+#include <QtXml/QtXml>
+#include <QXmlStreamReader>
+
+// class of file
+#include <QTextStream>
+#include <QFile>
+#include <QIODevice>
+
+// std io class
+#include <iostream>
+
 
 
 namespace Ui {
@@ -38,6 +49,7 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
     bool createConnection();
+    void myXmlParser(QXmlStreamReader xmlData);
 
 signals:
     void finished();
@@ -46,7 +58,10 @@ private:
     Ui::Widget *ui;
     class QNetworkAccessManager *nam;
     void PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut);
-    void xmlParser(QString xmlData);
+
+    QString response;
+    bool flag = false;
+
 
 private slots:
     void insertData();
@@ -57,6 +72,8 @@ private slots:
     void pushMessage();
     void getBaiduWeather();
     void placeSuggestion();
+
+    void functionChooser();
 
 
 };
