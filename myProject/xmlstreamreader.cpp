@@ -1,14 +1,25 @@
 
 #include "xmlstreamreader.h"
 
+XmlStreamReader::XmlStreamReader(QListWidget *list)
+{
+    listWidget = list;
+}
 XmlStreamReader::XmlStreamReader()
 {
+    // default constructor
+}
 
+void XmlStreamReader::setShowWidget(QListWidget *list)
+{
+    this->listWidget = list;
 }
 
 bool XmlStreamReader::readFile(const QString &fileName)
 {
-    QFile file(fileName);
+    QString fileWithAbsoultePath = QDir::currentPath() + '/' + fileName ;
+    // qDebug()<<fileWithAbsoultePath;
+    QFile file(fileWithAbsoultePath);
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
         std::cerr << "Error: cannot read file "
@@ -17,9 +28,14 @@ bool XmlStreamReader::readFile(const QString &fileName)
                   << std::endl;
         return false;
     }
+
    reader.setDevice(&file);
 
+
+
    reader.readNext();
+   // if (reader.atEnd())
+       // qDebug()<< fileName<< "no content";
    while(!reader.atEnd())
    {
        if (reader.isStartElement())
@@ -34,6 +50,7 @@ bool XmlStreamReader::readFile(const QString &fileName)
            }
        }else
            {
+           // qDebug()<<"next";
                 reader.readNext();
            }
    }
@@ -100,7 +117,7 @@ void XmlStreamReader::readResultElement()
         {
             if (reader.name() == "name")
             {
-                readNameElement();
+                readNameElement(listWidget);
             }
             else
             {
@@ -113,10 +130,39 @@ void XmlStreamReader::readResultElement()
         }
     }
 }
-void XmlStreamReader::readNameElement()
+void XmlStreamReader::readNameElement(QListWidget *parent)
 {
 
 
+    QString suggestion = reader.readElementText();
+    qDebug() << suggestion;
+
+    QListWidgetItem *item = new QListWidgetItem;
+    item->setText(suggestion);
+    parent->addItem(item);
+
+    reader.readNext();
+
+    while(!reader.atEnd())
+    {
+        if (reader.isEndElement())
+        {
+            reader.readNext();
+            break;
+        }
+
+        if(reader.isStartElement())
+        {
+            if (reader.name() == "name")
+                readNameElement(parent);
+            else
+                skipUnknownElement();
+        }
+        else
+        {
+            reader.readNext();
+        }
+    }
 }
 
 void XmlStreamReader::skipUnknownElement()

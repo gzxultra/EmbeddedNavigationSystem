@@ -35,6 +35,8 @@
 // std io class
 #include <iostream>
 
+#include <xmlstreamreader.h>
+
 
 
 namespace Ui {
@@ -49,7 +51,8 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
     bool createConnection();
-    void myXmlParser(QXmlStreamReader xmlData);
+
+    XmlStreamReader reader;
 
 signals:
     void finished();
@@ -74,6 +77,7 @@ private slots:
     void placeSuggestion();
 
     void functionChooser();
+    void debug();
 
 
 };

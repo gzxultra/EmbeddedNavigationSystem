@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 	splash->showMessage(QObject::tr("Setting up the main window..."));
     //sleep(1);
     Widget w;
+
 	w.move ((QApplication::desktop()->width() - w.width()) / 2, (QApplication::desktop()->height() - w.height()) / 2);
 
     splash->showMessage(QObject::tr("Loading modules..."), topRight, Qt::black);

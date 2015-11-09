@@ -10,7 +10,7 @@ Widget::Widget(QWidget *parent) :
     //ui->textBrowser->setText(QString(QObject::tr("\t\t智能温度计")));
     ui->listWidget->hide();
 
-
+    reader.setShowWidget(ui->listWidget);
     nam = new QNetworkAccessManager(this);
     QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),\
                      this, SLOT(finishedSlot(QNetworkReply*)));
@@ -94,6 +94,8 @@ void Widget::getBaiduWeather()
     out<<response;
     xmlFile.close();
 
+
+
 }
 
 void Widget::placeSuggestion()
@@ -120,7 +122,7 @@ void Widget::placeSuggestion()
 
 
 
-    ui->textBrowser->setText(response);
+    // ui->textBrowser->setText(response);
     QFile xmlFile("place_suggestion_response.xml");
     if(!xmlFile.open(QIODevice::WriteOnly))
     {
@@ -131,17 +133,12 @@ void Widget::placeSuggestion()
     QTextStream out(&xmlFile);
 
     out<<response;
-    //xmlFile.close();
+    // xmlFile.close();
+
+    // reader.readFile("place_suggestion_response.xml");
 
 }
 
-
-void Widget::myXmlParser(QXmlStreamReader xmlData){
-    ui->listWidget->clear();
-    qint64 data = xmlData.columnNumber();
-    qDebug()<<"code"<<data;
-    //ui->listWidget->addItem(QByteArray(data));
-}
 
 void Widget::insertData()
 {
@@ -283,29 +280,41 @@ void Widget::functionChooser()
     qint16 functionChoosed = ui->dial->value();
     switch (functionChoosed)
     {
+
         case 1:
             {
+
                 //百度天气
                 qDebug()<<QObject::tr("百度天气");
                 break;
             };
         case 2:
             {
+
                 //百度地图
                 qDebug()<<QObject::tr("百度地图");
                 break;
             };
         case 3:
             {
+
                 //周边推荐
                 qDebug()<<QObject::tr("周边推荐");
                 break;
             };
         default:
         {
+
             //some thing wrong
             qDebug()<<QObject::tr("some thing wrong");
         }
     }
 
+}
+
+
+void Widget::debug()
+{
+    ui->listWidget->clear();
+    reader.readFile("place_suggestion_response.xml");
 }

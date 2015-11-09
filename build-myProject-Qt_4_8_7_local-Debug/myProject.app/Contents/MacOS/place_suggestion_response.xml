@@ -3,93 +3,97 @@
   <status>0</status>
   <message>ok</message>
       <result>
-    					<name>北京菜</name>
+    					<name>文教</name>
 		                            <uid></uid>
         		            <city></city>
 		                    <district></district>
                             <business></business>
                             <cityid></cityid>
-            					<name>北京烤鸭</name>
+            					<name>维修站</name>
 		                            <uid></uid>
         		            <city></city>
 		                    <district></district>
                             <business></business>
                             <cityid></cityid>
-            					<name>北京出入境管理局</name>
-		                            <uid></uid>
-        		            <city></city>
+            					<name>文昌市</name>
+		                    <location>
+                <lat>19.549156</lat>
+                <lng>110.804248</lng>
+            </location>
+                            <uid>cf4277183f2fe5a797ec84ed</uid>
+        		            <city>海南省</city>
 		                    <district></district>
                             <business></business>
-                            <cityid></cityid>
-            					<name>北京西站</name>
+                            <cityid>cf4277183f2fe5a797ec84ed</cityid>
+            					<name>威宁彝族回族苗族自治县</name>
 		                    <location>
-                <lat>39.900515</lat>
-                <lng>116.327765</lng>
+                <lat>26.912947</lat>
+                <lng>104.137884</lng>
             </location>
-                            <uid>e1bfdd9c943c3796f32d8389</uid>
-        		            <city>北京市</city>
-		                    <district>丰台区</district>
+                            <uid>6001101013367be6b817e7ea</uid>
+        		            <city>毕节地区</city>
+		                    <district>威宁彝族回族苗族自治县</district>
                             <business></business>
-                            <cityid>e1bfdd9c943c3796f32d8389</cityid>
-            					<name>北京南站</name>
+                            <cityid>6001101013367be6b817e7ea</cityid>
+            					<name>大雁塔文化休闲景区</name>
 		                    <location>
-                <lat>39.871178</lat>
-                <lng>116.385495</lng>
+                <lat>34.225275</lat>
+                <lng>108.970724</lng>
             </location>
-                            <uid>41f4c72d01938d04cd04ef45</uid>
-        		            <city>北京市</city>
-		                    <district>丰台区</district>
+                            <uid>35debf29cf4ee444a6da3954</uid>
+        		            <city>西安市</city>
+		                    <district>雁塔区</district>
                             <business></business>
-                            <cityid>41f4c72d01938d04cd04ef45</cityid>
-            					<name>北京首都国际机场</name>
+                            <cityid>35debf29cf4ee444a6da3954</cityid>
+            					<name>涠洲岛</name>
 		                    <location>
-                <lat>40.061075</lat>
-                <lng>116.621192</lng>
+                <lat>21.048123</lat>
+                <lng>109.124567</lng>
             </location>
-                            <uid>0b1a222a5e3c3c0f7dc87611</uid>
-        		            <city>北京市</city>
-		                    <district>顺义区</district>
+                            <uid>4eb3b53372e6567643024531</uid>
+        		            <city>北海市</city>
+		                    <district>银海区</district>
                             <business></business>
-                            <cityid>0b1a222a5e3c3c0f7dc87611</cityid>
-            					<name>北京站</name>
+                            <cityid>4eb3b53372e6567643024531</cityid>
+            					<name>温州南站</name>
 		                    <location>
-                <lat>39.90978</lat>
-                <lng>116.433738</lng>
+                <lat>27.972329</lat>
+                <lng>120.591459</lng>
             </location>
-                            <uid>e04d046aa2db8c11c5effb85</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
+                            <uid>5eb5e032367934583617dc21</uid>
+        		            <city>温州市</city>
+		                    <district>瓯海区</district>
                             <business></business>
-                            <cityid>e04d046aa2db8c11c5effb85</cityid>
-            					<name>北京大学</name>
+                            <cityid>5eb5e032367934583617dc21</cityid>
+            					<name>威海汽车站</name>
 		                    <location>
-                <lat>39.997742</lat>
-                <lng>116.316176</lng>
+                <lat>37.431236</lat>
+                <lng>122.155796</lng>
             </location>
-                            <uid>ddfd7c2d8db36cf39ee3219e</uid>
-        		            <city>北京市</city>
-		                    <district>海淀区</district>
+                            <uid>5c6037ffb1063d9f02294f03</uid>
+        		            <city>威海市</city>
+		                    <district>环翠区</district>
                             <business></business>
-                            <cityid>ddfd7c2d8db36cf39ee3219e</cityid>
-            					<name>北京世界花卉大观园</name>
+                            <cityid>5c6037ffb1063d9f02294f03</cityid>
+            					<name>潍坊站</name>
 		                    <location>
-                <lat>39.841725</lat>
-                <lng>116.359809</lng>
+                <lat>36.703189</lat>
+                <lng>119.104998</lng>
             </location>
-                            <uid>baae3dde2007d4ada6da399e</uid>
-        		            <city>北京市</city>
-		                    <district>丰台区</district>
+                            <uid>e558bd6123d7a2160f0a70ce</uid>
+        		            <city>潍坊市</city>
+		                    <district>潍城区</district>
                             <business></business>
-                            <cityid>baae3dde2007d4ada6da399e</cityid>
-            					<name>北京动物园</name>
+                            <cityid>e558bd6123d7a2160f0a70ce</cityid>
+            					<name>文山市政府</name>
 		                    <location>
-                <lat>39.947168</lat>
-                <lng>116.342569</lng>
+                <lat>23.392534</lat>
+                <lng>104.239542</lng>
             </location>
-                            <uid>4bb049d91598944799005000</uid>
-        		            <city>北京市</city>
-		                    <district>西城区</district>
+                            <uid>6deee3082d83fc6929fc48d7</uid>
+        		            <city>文山壮族苗族自治州</city>
+		                    <district>文山县</district>
                             <business></business>
-                            <cityid>4bb049d91598944799005000</cityid>
+                            <cityid>6deee3082d83fc6929fc48d7</cityid>
               </result>
 </PlaceSuggestionResponse>
