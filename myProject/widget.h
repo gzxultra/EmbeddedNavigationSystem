@@ -77,7 +77,7 @@ private slots:
     void placeSuggestion();
 
     void functionChooser();
-    void debug();
+    void showSuggestions();
 
 
 };

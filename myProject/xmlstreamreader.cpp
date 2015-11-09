@@ -133,13 +133,13 @@ void XmlStreamReader::readResultElement()
 void XmlStreamReader::readNameElement(QListWidget *parent)
 {
 
-
     QString suggestion = reader.readElementText();
     qDebug() << suggestion;
 
     QListWidgetItem *item = new QListWidgetItem;
     item->setText(suggestion);
     parent->addItem(item);
+    // QObject::connect(item, SIGNAL(clicked()),  )
 
     reader.readNext();
 

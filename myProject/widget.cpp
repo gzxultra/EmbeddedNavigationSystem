@@ -184,7 +184,6 @@ bool Widget::createConnection()
         qDebug() << QObject::tr("数据库表创建成功!\n");
     else
         qDebug() << QObject::tr("数据库表创建失败!\n");
-
     return true;
 }
 
@@ -313,8 +312,9 @@ void Widget::functionChooser()
 }
 
 
-void Widget::debug()
+void Widget::showSuggestions()
 {
     ui->listWidget->clear();
     reader.readFile("place_suggestion_response.xml");
+    // ui->listWidget->items()
 }

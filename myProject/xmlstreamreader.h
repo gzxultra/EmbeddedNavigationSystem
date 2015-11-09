@@ -22,8 +22,6 @@ private:
     void readNameElement(QListWidget *parent);
     void skipUnknownElement();
 
-
-
     QXmlStreamReader reader;
     QListWidget *listWidget;
 
