@@ -3,44 +3,34 @@
   <status>0</status>
   <message>ok</message>
       <result>
-    					<name>北京菜</name>
+    					<name>北京烤鸭</name>
 		                            <uid></uid>
         		            <city></city>
 		                    <district></district>
                             <business></business>
                             <cityid></cityid>
-            					<name>北京烤鸭</name>
+            					<name>北京菜</name>
 		                            <uid></uid>
         		            <city></city>
 		                    <district></district>
                             <business></business>
                             <cityid></cityid>
+            					<name>北京市</name>
+		                    <location>
+                <lat>39.911013</lat>
+                <lng>116.413554</lng>
+            </location>
+                            <uid>1f062db5bf2e12b5b04c49e6</uid>
+        		            <city>北京市</city>
+		                    <district></district>
+                            <business></business>
+                            <cityid>1f062db5bf2e12b5b04c49e6</cityid>
             					<name>北京出入境管理局</name>
 		                            <uid></uid>
         		            <city></city>
 		                    <district></district>
                             <business></business>
                             <cityid></cityid>
-            					<name>北京路-道路</name>
-		                    <location>
-                <lat>23.133699</lat>
-                <lng>113.275193</lng>
-            </location>
-                            <uid>75df9a8935dc0df92fb96d94</uid>
-        		            <city>广州市</city>
-		                    <district>越秀区</district>
-                            <business></business>
-                            <cityid>75df9a8935dc0df92fb96d94</cityid>
-            					<name>北京skp</name>
-		                    <location>
-                <lat>39.915528</lat>
-                <lng>116.485122</lng>
-            </location>
-                            <uid>b479b328704654521994c682</uid>
-        		            <city>北京市</city>
-		                    <district>朝阳区</district>
-                            <business></business>
-                            <cityid>b479b328704654521994c682</cityid>
             					<name>北京西站</name>
 		                    <location>
                 <lat>39.900515</lat>
@@ -61,26 +51,6 @@
 		                    <district>丰台区</district>
                             <business></business>
                             <cityid>41f4c72d01938d04cd04ef45</cityid>
-            					<name>北京路-地铁站</name>
-		                    <location>
-                <lat>23.124931</lat>
-                <lng>113.276481</lng>
-            </location>
-                            <uid>1162af05464800580d3dda3b</uid>
-        		            <city>广州市</city>
-		                    <district>越秀区</district>
-                            <business></business>
-                            <cityid>1162af05464800580d3dda3b</cityid>
-            					<name>北京首都国际机场</name>
-		                    <location>
-                <lat>40.061075</lat>
-                <lng>116.621192</lng>
-            </location>
-                            <uid>0b1a222a5e3c3c0f7dc87611</uid>
-        		            <city>北京市</city>
-		                    <district>顺义区</district>
-                            <business></business>
-                            <cityid>0b1a222a5e3c3c0f7dc87611</cityid>
             					<name>北京站</name>
 		                    <location>
                 <lat>39.90978</lat>
@@ -91,5 +61,35 @@
 		                    <district>东城区</district>
                             <business></business>
                             <cityid>e04d046aa2db8c11c5effb85</cityid>
+            					<name>北京大学</name>
+		                    <location>
+                <lat>39.997742</lat>
+                <lng>116.316176</lng>
+            </location>
+                            <uid>ddfd7c2d8db36cf39ee3219e</uid>
+        		            <city>北京市</city>
+		                    <district>海淀区</district>
+                            <business></business>
+                            <cityid>ddfd7c2d8db36cf39ee3219e</cityid>
+            					<name>北京路-道路</name>
+		                    <location>
+                <lat>23.133699</lat>
+                <lng>113.275193</lng>
+            </location>
+                            <uid>75df9a8935dc0df92fb96d94</uid>
+        		            <city>广州市</city>
+		                    <district>越秀区</district>
+                            <business></business>
+                            <cityid>75df9a8935dc0df92fb96d94</cityid>
+            					<name>北京南站-地铁站</name>
+		                    <location>
+                <lat>39.871457</lat>
+                <lng>116.384955</lng>
+            </location>
+                            <uid>0c2a47d4eab8d63de315f928</uid>
+        		            <city>北京市</city>
+		                    <district>丰台区</district>
+                            <business></business>
+                            <cityid>0c2a47d4eab8d63de315f928</cityid>
               </result>
 </PlaceSuggestionResponse>

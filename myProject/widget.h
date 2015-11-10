@@ -11,32 +11,31 @@
 
 #include <QtDebug>
 
-// class of database
+// database interface
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QSqlDriver>
 #include <QSqlRecord>
 
-// class of network
+// network handler
 #include <QNetworkReply>
 #include <QNetworkRequest>
 
-// class of xml parser
-// #include <QXmlStreamReader>
-#include <QtXml/QtXml>
-#include <QXmlStreamReader>
-
-// class of file
+// xml file output handler
 #include <QTextStream>
 #include <QFile>
 #include <QIODevice>
 
-// std io class
+// std input/output
 #include <iostream>
 
+// parser
 #include <xmlstreamreader.h>
 
+// Qt xml reader
+#include <QtXml/QtXml>
+#include <QXmlStreamReader>
 
 
 namespace Ui {
@@ -63,7 +62,7 @@ private:
     void PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut);
 
     QString response;
-    bool flag = false;
+
 
 
 private slots:
@@ -78,6 +77,8 @@ private slots:
 
     void functionChooser();
     void showSuggestions();
+
+    void showSelectedItemOnLineEdit(QListWidgetItem*);
 
 
 };

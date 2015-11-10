@@ -17,11 +17,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    xmlstreamreader.cpp
+    xmlstreamreader.cpp \
+    test.cpp
 
 HEADERS  += widget.h \
     sht11_test.h \
-    xmlstreamreader.h
+    xmlstreamreader.h \
+    test.h
 
 FORMS    += widget.ui
 

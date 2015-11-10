@@ -5,25 +5,32 @@
 #include <QXmlStreamReader>
 #include <iostream>
 #include <QListWidget>
+#include <QLineEdit>
 #include <QDebug>
 #include <QDir>
-class XmlStreamReader
+#include <QObject>
+
+class XmlStreamReader : public QObject
 {
+    Q_OBJECT
 public:
-    XmlStreamReader(QListWidget *list);
-    XmlStreamReader();
+
+    explicit XmlStreamReader(QObject *parent = 0);
     bool readFile(const QString &fileName);
-    void setShowWidget(QListWidget *list);
+    void setShowWidget(QListWidget *list, QLineEdit *line);
 
 private:
     void readPlaceSuggestionResponse();
     void readResultElement();
 
-    void readNameElement(QListWidget *parent);
+    void readNameElement(QListWidget *parent, QLineEdit *line);
     void skipUnknownElement();
 
     QXmlStreamReader reader;
     QListWidget *listWidget;
+    QLineEdit *lineEdit;
+
+
 
 };
 

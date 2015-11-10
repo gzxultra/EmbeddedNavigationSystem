@@ -2,23 +2,23 @@
 #include "ui_widget.h"
 
 Widget::Widget(QWidget *parent) :
-	QWidget(parent),
-	ui(new Ui::Widget)
+    QWidget(parent),
+    ui(new Ui::Widget)
 {
-	ui->setupUi(this);
+    ui->setupUi(this);
     //ui->textBrowser->setAlignment(Qt::AlignCenter);
     //ui->textBrowser->setText(QString(QObject::tr("\t\t智能温度计")));
     ui->listWidget->hide();
 
-    reader.setShowWidget(ui->listWidget);
+    reader.setShowWidget(ui->listWidget, ui->lineEdit);
     nam = new QNetworkAccessManager(this);
-    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)),\
+    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)), \
                      this, SLOT(finishedSlot(QNetworkReply*)));
 }
 
 Widget::~Widget()
 {
-	delete ui;
+    delete ui;
 }
 
 
@@ -28,7 +28,7 @@ void Widget::queryData()
     QString result;
     query.exec("SELECT id, temperature FROM automobil");
     if (!query.isActive())
-        QMessageBox::warning(this,\
+        QMessageBox::warning(this, \
                              QObject::tr("Database Error!"), query.lastError().text());
     else {
         while (query.next())
@@ -48,9 +48,9 @@ void Widget::pushMessage()
     QByteArray append("appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
 
     // here add your vars and date
-    append.append("&vars={\"code\":\""+ QDateTime::currentDateTime().toString()+"\"}");
+    append.append("&vars={\"code\":\"" + QDateTime::currentDateTime().toString() + "\"}");
     //append.append("&vars={\"code\":\""+ QString("北京2015-11-06, pm25 = 44, 穿衣指数:建议着厚外套加毛衣等服装。年老体弱者宜着大衣、呢外套加羊毛衫。 感冒，较易发，感冒指数：天气较凉，较易发生感冒，请适当增加衣服。体质较弱的朋友尤其应该注意防护。来自风哥的智能温度计，么么哒！")+"\"}");
-    qDebug()<<append;
+    qDebug() << append;
 
     //QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
     QNetworkRequest request(url);
@@ -75,23 +75,19 @@ void Widget::getBaiduWeather()
 
 
 
-    qDebug()<<response;
+    qDebug() << response;
     QXmlStreamReader reader(response);
 
-    //qDebug()<<"code:"<<reader.lineNumber();
-
-    //ui->textBrowser->setText(data);
-    //QFile xmlFile("../../../baiduweather.xml");
     QFile xmlFile("baiduweather.xml");
-    if(!xmlFile.open(QIODevice::WriteOnly))
+    if (!xmlFile.open(QIODevice::WriteOnly))
     {
-        std::cerr << "Cannot open file for writing:"<< qPrintable(xmlFile.errorString())<<std::endl;
+        std::cerr << "Cannot open file for writing:" << qPrintable(xmlFile.errorString()) << std::endl;
         return;
     }
 
     QTextStream out(&xmlFile);
 
-    out<<response;
+    out << response;
     xmlFile.close();
 
 
@@ -124,15 +120,15 @@ void Widget::placeSuggestion()
 
     // ui->textBrowser->setText(response);
     QFile xmlFile("place_suggestion_response.xml");
-    if(!xmlFile.open(QIODevice::WriteOnly))
+    if (!xmlFile.open(QIODevice::WriteOnly))
     {
-        std::cerr << "Cannot open file for writing:"<< qPrintable(xmlFile.errorString())<<std::endl;
+        std::cerr << "Cannot open file for writing:" << qPrintable(xmlFile.errorString()) << std::endl;
         return;
     }
 
     QTextStream out(&xmlFile);
 
-    out<<response;
+    out << response;
     // xmlFile.close();
 
     // reader.readFile("place_suggestion_response.xml");
@@ -203,7 +199,7 @@ void Widget::finishedSlot(QNetworkReply *reply)
     // no error received?
     if (reply->error() == QNetworkReply::NoError)
     {
-        flag = true;
+
         // read data from QNetworkReply here
 
         // Example 1: Creating QImage from the reply
@@ -235,24 +231,24 @@ void Widget::finishedSlot(QNetworkReply *reply)
 
 void Widget::PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut)
 {
-    for(int i=0; i<strInput.length();)
+    for (int i = 0; i < strInput.length();)
     {
-        if (0==QString::compare(strInput.mid(i,1), QString("%")))
+        if (0 == QString::compare(strInput.mid(i, 1), QString("%")))
         {
-            if ((i+2)<strInput.length())
+            if ((i + 2) < strInput.length())
             {
-                ByteArrayOut.append(strInput.mid(i+1,2).toShort(0,16));
-                i=i+3;
+                ByteArrayOut.append(strInput.mid(i + 1, 2).toShort(0, 16));
+                i = i + 3;
             }
             else
             {
-                ByteArrayOut.append(strInput.mid(i,1));
+                ByteArrayOut.append(strInput.mid(i, 1));
                 i++;
             }
         }
         else
         {
-            ByteArrayOut.append(strInput.mid(i,1));
+            ByteArrayOut.append(strInput.mid(i, 1));
             i++;
         }
     }//For end
@@ -280,35 +276,34 @@ void Widget::functionChooser()
     switch (functionChoosed)
     {
 
-        case 1:
-            {
+    case 1:
+    {
 
-                //百度天气
-                qDebug()<<QObject::tr("百度天气");
-                break;
-            };
-        case 2:
-            {
+        //百度天气
+        qDebug() << QObject::tr("百度天气");
+        break;
+    };
+    case 2:
+    {
 
-                //百度地图
-                qDebug()<<QObject::tr("百度地图");
-                break;
-            };
-        case 3:
-            {
+        //百度地图
+        qDebug() << QObject::tr("百度地图");
+        break;
+    };
+    case 3:
+    {
 
-                //周边推荐
-                qDebug()<<QObject::tr("周边推荐");
-                break;
-            };
-        default:
-        {
+        //周边推荐
+        qDebug() << QObject::tr("周边推荐");
+        break;
+    };
+    default:
+    {
 
-            //some thing wrong
-            qDebug()<<QObject::tr("some thing wrong");
-        }
+        //some thing wrong
+        qDebug() << QObject::tr("some thing wrong");
     }
-
+    }
 }
 
 
@@ -316,5 +311,11 @@ void Widget::showSuggestions()
 {
     ui->listWidget->clear();
     reader.readFile("place_suggestion_response.xml");
-    // ui->listWidget->items()
+}
+
+void Widget::showSelectedItemOnLineEdit(QListWidgetItem* item)
+{
+    qDebug() << "call slot function successfully.";
+    ui->lineEdit->clear();
+    // ui->lineEdit->setText(item->text());
 }
