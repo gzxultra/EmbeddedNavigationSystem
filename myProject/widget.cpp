@@ -313,9 +313,15 @@ void Widget::showSuggestions()
     reader.readFile("place_suggestion_response.xml");
 }
 
-void Widget::showSelectedItemOnLineEdit(QListWidgetItem* item)
+void Widget::showSelectedItemOnLineEdit()
 {
-    qDebug() << "call slot function successfully.";
     ui->lineEdit->clear();
-    // ui->lineEdit->setText(item->text());
+    // ui->lineEdit->setText(ui->listWidget->currentItem()->text());
+    QListWidgetItem *item = ui->listWidget->currentItem();
+    qDebug() << item;
+    if(item != 0x0)
+        ui->lineEdit->setText(ui->listWidget->currentItem()->text());
+    else
+        qDebug() << "small glinches";
+    qDebug() << "set text successfully.";
 }

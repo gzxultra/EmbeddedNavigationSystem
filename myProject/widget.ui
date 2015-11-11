@@ -351,7 +351,7 @@ p, li { white-space: pre-wrap; }
    <sender>listWidget</sender>
    <signal>itemDoubleClicked(QListWidgetItem*)</signal>
    <receiver>Widget</receiver>
-   <slot>showSelectedItemOnLineEdit(QListWidgetItem*)</slot>
+   <slot>showSelectedItemOnLineEdit()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>190</x>
@@ -372,6 +372,6 @@ p, li { white-space: pre-wrap; }
   <slot>placeSuggestion()</slot>
   <slot>functionChooser()</slot>
   <slot>showSuggestions()</slot>
-  <slot>showSelectedItemOnLineEdit(QListWidgetItem*)</slot>
+  <slot>showSelectedItemOnLineEdit()</slot>
  </slots>
 </ui>

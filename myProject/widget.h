@@ -78,7 +78,7 @@ private slots:
     void functionChooser();
     void showSuggestions();
 
-    void showSelectedItemOnLineEdit(QListWidgetItem*);
+    void showSelectedItemOnLineEdit();
 
 
 };
