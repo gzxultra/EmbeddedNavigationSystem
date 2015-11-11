@@ -59,7 +59,6 @@ signals:
 private:
     Ui::Widget *ui;
     class QNetworkAccessManager *nam;
-    void PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut);
 
     QString response;
 
@@ -76,7 +75,7 @@ private slots:
     void placeSuggestion();
 
     void functionChooser();
-    void showSuggestions();
+    void debug();
 
     void showSelectedItemOnLineEdit();
 

@@ -220,38 +220,6 @@ p, li { white-space: pre-wrap; }
  <resources/>
  <connections>
   <connection>
-   <sender>insertButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Widget</receiver>
-   <slot>insertData()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>76</x>
-     <y>255</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>queryButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Widget</receiver>
-   <slot>queryData()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>196</x>
-     <y>255</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>clearButton</sender>
    <signal>clicked()</signal>
    <receiver>textBrowser</receiver>
@@ -287,55 +255,7 @@ p, li { white-space: pre-wrap; }
    <sender>lineEdit</sender>
    <signal>textChanged(QString)</signal>
    <receiver>Widget</receiver>
-   <slot>placeSuggestion()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>300</x>
-     <y>80</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>199</x>
-     <y>149</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>dial</sender>
-   <signal>valueChanged(int)</signal>
-   <receiver>Widget</receiver>
-   <slot>functionChooser()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>334</x>
-     <y>331</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>239</x>
-     <y>319</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lineEdit</sender>
-   <signal>textEdited(QString)</signal>
-   <receiver>listWidget</receiver>
-   <slot>show()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>300</x>
-     <y>80</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>300</x>
-     <y>150</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>lineEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>Widget</receiver>
-   <slot>showSuggestions()</slot>
+   <slot>debug()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>190</x>
@@ -363,6 +283,86 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>insertButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>insertData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>76</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>queryButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>queryData()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>255</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>listWidget</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>300</x>
+     <y>150</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>dial</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>Widget</receiver>
+   <slot>functionChooser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>334</x>
+     <y>331</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>lineEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>Widget</receiver>
+   <slot>placeSuggestion()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>300</x>
+     <y>80</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>199</x>
+     <y>149</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>insertData()</slot>
@@ -373,5 +373,6 @@ p, li { white-space: pre-wrap; }
   <slot>functionChooser()</slot>
   <slot>showSuggestions()</slot>
   <slot>showSelectedItemOnLineEdit()</slot>
+  <slot>debug()</slot>
  </slots>
 </ui>

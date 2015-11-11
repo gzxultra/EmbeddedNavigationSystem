@@ -61,19 +61,17 @@ void Widget::pushMessage()
 
 void Widget::getBaiduWeather()
 {
+    QNetworkReply* reply;
     // post action start
     QUrl url("http://api.map.baidu.com/telematics/v3/weather?");
 
     QByteArray append("location=北京&output=xml&ak=YSGcdwW38tmEKRQvYzvuKDCu");
 
-
-
-
     QNetworkRequest request(url);
-    // request.setRawHeader("User-Agent", "Mozilla/5.0 (X11; Linux x86_64; rv:7.0.1) Gecko/20100101 Firefox/7.0.1");
-    QNetworkReply* reply = nam->post(request, append);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setHeader(QNetworkRequest::ContentLengthHeader, append.length());
 
-
+    nam->post(request, append);
 
     qDebug() << response;
     QXmlStreamReader reader(response);
@@ -98,6 +96,7 @@ void Widget::placeSuggestion()
 {
 
     QString input = ui->lineEdit->text();
+    // if (input.length() < 2) return;
     QString region = QByteArray("全国").toPercentEncoding();
 
     QByteArray originRequest = "http://api.map.baidu.com/place/v2/suggestion?";
@@ -114,27 +113,84 @@ void Widget::placeSuggestion()
     QNetworkRequest request(url);
     // qDebug()<<QObject::tr(append);
 
-    QNetworkReply* reply = nam->post(request, "");
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    request.setHeader(QNetworkRequest::ContentLengthHeader, originRequest.length());
+
+    nam->post(request, "");
 
 
 
-    // ui->textBrowser->setText(response);
+
+
+}
+/*
+void Widget::finishedSlot(QNetworkReply *reply)
+{
+
+#if 1
+
+    // Reading attributes of the reply
+    // e.g. the HTTP status code
+    QVariant statusCodeV =
+        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
+    // Or the target URL if it was a redirect:
+    QVariant redirectionTargetUrl =
+        reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
+    // see CS001432 on how to handle this
+
+    // no error received?
+    if (reply->error() == QNetworkReply::NoError)
+    {
+         QByteArray bytes = reply->readAll();  // bytes
+        //QString string(bytes); // string
+         QString string = QString::fromUtf8(bytes);
+
+
+        //Very Important here!
+        //ui->textBrowser->setText(string);
+        response = string;
+    }
+    // Some http error received
+    else
+    {
+        // handle errors here
+    }
+
+
+    reply->deleteLater();
+#endif
+}
+
+*/
+void Widget::finishedSlot(QNetworkReply *reply)
+{
+    if (reply->error() == QNetworkReply::NoError)
+    {
+        std::cerr << "Success: " << std::endl;
+        QByteArray bytes = reply->readAll();  // bytes
+        QString string = QString::fromUtf8(bytes);
+        response = string; // i set the data directly here, which is supposed to be wrong in OOP Programming! will be back later.
+    }
+    else
+        std::cerr << "Error: " << qPrintable(reply->errorString())
+                  << std::endl;
+    // emit finished();
+    reply->deleteLater();
+
+
     QFile xmlFile("place_suggestion_response.xml");
     if (!xmlFile.open(QIODevice::WriteOnly))
     {
         std::cerr << "Cannot open file for writing:" << qPrintable(xmlFile.errorString()) << std::endl;
         return;
     }
-
     QTextStream out(&xmlFile);
-
     out << response;
-    // xmlFile.close();
+    xmlFile.close();
 
-    // reader.readFile("place_suggestion_response.xml");
-
+    ui->listWidget->clear();
+    reader.readFile("place_suggestion_response.xml");
 }
-
 
 void Widget::insertData()
 {
@@ -182,78 +238,6 @@ bool Widget::createConnection()
         qDebug() << QObject::tr("数据库表创建失败!\n");
     return true;
 }
-
-
-void Widget::finishedSlot(QNetworkReply *reply)
-{
-#if 1
-    // Reading attributes of the reply
-    // e.g. the HTTP status code
-    QVariant statusCodeV =
-        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
-    // Or the target URL if it was a redirect:
-    QVariant redirectionTargetUrl =
-        reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    // see CS001432 on how to handle this
-
-    // no error received?
-    if (reply->error() == QNetworkReply::NoError)
-    {
-
-        // read data from QNetworkReply here
-
-        // Example 1: Creating QImage from the reply
-        //QImageReader imageReader(reply);
-        //QImage pic = imageReader.read();
-
-        // Example 2: Reading bytes form the reply
-        QByteArray bytes = reply->readAll();  // bytes
-        //QString string(bytes); // string
-        QString string = QString::fromUtf8(bytes);
-
-
-        //Very Important here!
-        //ui->textBrowser->setText(string);
-        response = string;
-    }
-    // Some http error received
-    else
-    {
-        // handle errors here
-    }
-
-    // We receive ownership of the reply object
-    // and therefore need to handle deletion.
-    reply->deleteLater();
-#endif
-}
-
-
-void Widget::PercentEncoding2ByteArray(QString strInput, QByteArray & ByteArrayOut)
-{
-    for (int i = 0; i < strInput.length();)
-    {
-        if (0 == QString::compare(strInput.mid(i, 1), QString("%")))
-        {
-            if ((i + 2) < strInput.length())
-            {
-                ByteArrayOut.append(strInput.mid(i + 1, 2).toShort(0, 16));
-                i = i + 3;
-            }
-            else
-            {
-                ByteArrayOut.append(strInput.mid(i, 1));
-                i++;
-            }
-        }
-        else
-        {
-            ByteArrayOut.append(strInput.mid(i, 1));
-            i++;
-        }
-    }//For end
-
-}// PercentEncoding2ByteArray end
 
 void Widget::functionChooser()
 {
@@ -306,17 +290,17 @@ void Widget::functionChooser()
     }
 }
 
-
+/*
 void Widget::showSuggestions()
 {
     ui->listWidget->clear();
     reader.readFile("place_suggestion_response.xml");
 }
+*/
 
 void Widget::showSelectedItemOnLineEdit()
 {
     ui->lineEdit->clear();
-    // ui->lineEdit->setText(ui->listWidget->currentItem()->text());
     QListWidgetItem *item = ui->listWidget->currentItem();
     qDebug() << item;
     if(item != 0x0)
@@ -324,4 +308,9 @@ void Widget::showSelectedItemOnLineEdit()
     else
         qDebug() << "small glinches";
     qDebug() << "set text successfully.";
+}
+
+void Widget::debug()
+{
+
 }
