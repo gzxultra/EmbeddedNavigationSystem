@@ -25,6 +25,9 @@ ui_*.h
 Makefile*
 *-build-*
 
+# debug build for myPorject
+build-myProject-Qt_4_8_7_local-Debug
+
 # QtCreator
 
 *.autosave
