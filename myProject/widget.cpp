@@ -42,6 +42,7 @@ void Widget::queryData()
 
 void Widget::pushMessage()
 {
+/*
     //post action start
     QUrl url("https://api.submail.cn/message/xsend.json");
 
@@ -57,6 +58,12 @@ void Widget::pushMessage()
     //request.setHeader("User-Agent", "Mozilla/5.0");
     QNetworkReply* reply = nam->post(request, append);
     ui->textBrowser->append(reply->readAll());
+*/
+
+    qDebug() << "start pushing message.";
+    messagePusher pusher;
+    pusher.pushMessage(ui->textBrowser);
+
 }
 
 void Widget::getBaiduWeather()
@@ -111,16 +118,10 @@ void Widget::placeSuggestion()
 
     //qDebug()<<url;
     QNetworkRequest request(url);
-    // qDebug()<<QObject::tr(append);
-
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
     request.setHeader(QNetworkRequest::ContentLengthHeader, originRequest.length());
 
     nam->post(request, "");
-
-
-
-
 
 }
 /*
@@ -289,14 +290,6 @@ void Widget::functionChooser()
     }
     }
 }
-
-/*
-void Widget::showSuggestions()
-{
-    ui->listWidget->clear();
-    reader.readFile("place_suggestion_response.xml");
-}
-*/
 
 void Widget::showSelectedItemOnLineEdit()
 {

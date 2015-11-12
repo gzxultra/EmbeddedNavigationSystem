@@ -2,6 +2,7 @@
 #define TEST_H
 
 #include <QObject>
+#include <QWidget>
 
 class test : public QObject
 {

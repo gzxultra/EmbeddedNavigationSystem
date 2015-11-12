@@ -30,8 +30,6 @@ private:
     QListWidget *listWidget;
     QLineEdit *lineEdit;
 
-
-
 };
 
 #endif // XMLSTREAMREADER_H

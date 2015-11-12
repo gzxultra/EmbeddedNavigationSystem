@@ -37,6 +37,8 @@
 #include <QtXml/QtXml>
 #include <QXmlStreamReader>
 
+// push message
+#include <messagepusher.h>
 
 namespace Ui {
 class Widget;
@@ -52,6 +54,7 @@ public:
     bool createConnection();
 
     XmlStreamReader reader;
+   // messagePusher pusher;
 
 signals:
     void finished();
@@ -78,7 +81,6 @@ private slots:
     void debug();
 
     void showSelectedItemOnLineEdit();
-
 
 };
 
