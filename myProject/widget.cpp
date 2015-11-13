@@ -56,20 +56,18 @@ void Widget::pushMessage()
     //QNetworkRequest::setHeader("User-Agent", "Mozilla/5.0");
     QNetworkRequest request(url);
     //request.setHeader("User-Agent", "Mozilla/5.0");
-    QNetworkReply* reply = nam->post(request, append);
-    ui->textBrowser->append(reply->readAll());
+    nam->post(request, append);
 */
-
     qDebug() << "start pushing message.";
     messagePusher pusher;
+    qDebug() << pusher.getMessage();
     pusher.pushMessage(ui->textBrowser);
+    qDebug() << pusher.getMessage();
 
 }
 
 void Widget::getBaiduWeather()
 {
-    QNetworkReply* reply;
-    // post action start
     QUrl url("http://api.map.baidu.com/telematics/v3/weather?");
 
     QByteArray append("location=北京&output=xml&ak=YSGcdwW38tmEKRQvYzvuKDCu");
@@ -115,56 +113,19 @@ void Widget::placeSuggestion()
 
     QUrl url = QUrl(originRequest);
 
-
     //qDebug()<<url;
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-    request.setHeader(QNetworkRequest::ContentLengthHeader, originRequest.length());
+    // request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    // request.setHeader(QNetworkRequest::ContentLengthHeader, originRequest.length());
 
-    nam->post(request, "");
+    // nam->post(request, "");
+    nam->get(request);
 
 }
-/*
+
 void Widget::finishedSlot(QNetworkReply *reply)
 {
-
-#if 1
-
-    // Reading attributes of the reply
-    // e.g. the HTTP status code
-    QVariant statusCodeV =
-        reply->attribute(QNetworkRequest::HttpStatusCodeAttribute);
-    // Or the target URL if it was a redirect:
-    QVariant redirectionTargetUrl =
-        reply->attribute(QNetworkRequest::RedirectionTargetAttribute);
-    // see CS001432 on how to handle this
-
-    // no error received?
-    if (reply->error() == QNetworkReply::NoError)
-    {
-         QByteArray bytes = reply->readAll();  // bytes
-        //QString string(bytes); // string
-         QString string = QString::fromUtf8(bytes);
-
-
-        //Very Important here!
-        //ui->textBrowser->setText(string);
-        response = string;
-    }
-    // Some http error received
-    else
-    {
-        // handle errors here
-    }
-
-
-    reply->deleteLater();
-#endif
-}
-
-*/
-void Widget::finishedSlot(QNetworkReply *reply)
-{
+    qDebug() << "here we are.";
     if (reply->error() == QNetworkReply::NoError)
     {
         std::cerr << "Success: " << std::endl;
@@ -176,6 +137,7 @@ void Widget::finishedSlot(QNetworkReply *reply)
         std::cerr << "Error: " << qPrintable(reply->errorString())
                   << std::endl;
     // emit finished();
+    ui->textBrowser->setText(response);
     reply->deleteLater();
 
 
@@ -306,4 +268,19 @@ void Widget::showSelectedItemOnLineEdit()
 void Widget::debug()
 {
 
+}
+void Widget::setHtmlData()
+{
+    QString htmlString;
+    QFile htmlData("html.txt");
+
+    QTextStream in(&htmlData);
+    in >> htmlString;
+    qDebug() << htmlString;
+
+    QFile html2Data("html2.txt");
+    QTextStream out(&html2Data);
+    out << "helloworld!";
+
+    ui->webView->setHtml(htmlString);
 }

@@ -1,4 +1,3 @@
-
 #include "xmlstreamreader.h"
 /*
 XmlStreamReader::XmlStreamReader(QListWidget *list)
@@ -139,7 +138,9 @@ void XmlStreamReader::readNameElement(QListWidget *parent, QLineEdit *line)
 
   QListWidgetItem *item = new QListWidgetItem;
   item->setText(suggestion);
+  item->setWhatsThis(suggestion + "test");
   parent->addItem(item);
+
 
   reader.readNext();
 

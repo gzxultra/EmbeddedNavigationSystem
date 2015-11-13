@@ -130,6 +130,12 @@ p, li { white-space: pre-wrap; }
      <height>301</height>
     </rect>
    </property>
+   <property name="textInteractionFlags">
+    <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+   </property>
+   <property name="openExternalLinks">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QListWidget" name="listWidget">
    <property name="geometry">
@@ -205,8 +211,30 @@ p, li { white-space: pre-wrap; }
     <string>周边地点</string>
    </property>
   </widget>
+  <widget class="QWebView" name="webView">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>140</y>
+     <width>300</width>
+     <height>200</height>
+    </rect>
+   </property>
+   <property name="url">
+    <url>
+     <string>about:blank</string>
+    </url>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKitWidgets/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>lineEdit</tabstop>
   <tabstop>pushButton</tabstop>
@@ -348,10 +376,26 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>pushButton</sender>
+   <sender>messageButton</sender>
    <signal>clicked()</signal>
    <receiver>Widget</receiver>
    <slot>pushMessage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>609</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>setHtmlData()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>304</x>
@@ -374,5 +418,6 @@ p, li { white-space: pre-wrap; }
   <slot>showSuggestions()</slot>
   <slot>showSelectedItemOnLineEdit()</slot>
   <slot>debug()</slot>
+  <slot>setHtmlData()</slot>
  </slots>
 </ui>

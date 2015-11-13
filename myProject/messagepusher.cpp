@@ -3,10 +3,13 @@
 
 messagePusher::messagePusher(QObject *parent) : QObject(parent)
 {
-    nam = new QNetworkAccessManager(this);
-    QObject::connect(nam, SIGNAL(finished(QNetworkReply*)), \
-                     this, SLOT(finishedSlot(QNetworkReply*)));
-    qDebug() << "connected";
+    manager = new QNetworkAccessManager(this);
+    if(QObject::connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishedSlot(QNetworkReply*))))
+        qDebug("connected.");
+    //QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    //connect(manager, SIGNAL(finished(QNetworkReply*)),
+      //      this, SLOT(replyFinished(QNetworkReply*)));
+
 }
 
 void messagePusher::setMessage(QString string)
@@ -16,11 +19,13 @@ void messagePusher::setMessage(QString string)
 
 QString messagePusher::getMessage()
 {
+    //this->setMessage(QString("nothing."));
     return this->message;
 }
 
 bool messagePusher::pushMessage(QTextBrowser *textBrowser)
 {
+
     this->browser = textBrowser;
 
     QUrl url = QUrl("https://api.submail.cn/message/xsend.json");
@@ -29,12 +34,13 @@ bool messagePusher::pushMessage(QTextBrowser *textBrowser)
     // here add your vars and date
     post_data.append("&vars={\"code\":\"" + QDateTime::currentDateTime().toString() + "\"}");
 
+    qDebug() << post_data;
 
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
     request.setHeader(QNetworkRequest::ContentLengthHeader, post_data.length());
 
-    nam->post(request, post_data);
+    this->manager->post(request, post_data);
 
     return true;
 }

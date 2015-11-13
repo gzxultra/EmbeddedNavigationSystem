@@ -23,14 +23,14 @@ public:
 signals:
     void finished();
 
-private slots:
-    void finishedSlot(QNetworkReply *);
-
 private:
-    class QNetworkAccessManager *nam;
+    class QNetworkAccessManager *manager;
     QString message;
 
     QTextBrowser *browser;
+
+private slots:
+    void finishedSlot(QNetworkReply *);
 };
 
 #endif // MESSAGEPUSHER_H

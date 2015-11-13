@@ -65,8 +65,6 @@ private:
 
     QString response;
 
-
-
 private slots:
     void insertData();
     void queryData();
@@ -81,6 +79,7 @@ private slots:
     void debug();
 
     void showSelectedItemOnLineEdit();
+    void setHtmlData();
 
 };
 
