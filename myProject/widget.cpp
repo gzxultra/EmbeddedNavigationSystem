@@ -58,11 +58,13 @@ void Widget::pushMessage()
     //request.setHeader("User-Agent", "Mozilla/5.0");
     nam->post(request, append);
 */
+
     qDebug() << "start pushing message.";
     messagePusher pusher;
     qDebug() << pusher.getMessage();
     pusher.pushMessage(ui->textBrowser);
     qDebug() << pusher.getMessage();
+
 
 }
 

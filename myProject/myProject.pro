@@ -20,13 +20,13 @@ SOURCES += main.cpp\
         widget.cpp \
     xmlstreamreader.cpp \
     messagepusher.cpp \
-    test.cpp
+    http.cpp
 
 HEADERS  += widget.h \
     sht11_test.h \
     xmlstreamreader.h \
     messagepusher.h \
-    test.h
+    http.h
 
 FORMS    += widget.ui
 

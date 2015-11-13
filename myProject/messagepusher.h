@@ -31,6 +31,7 @@ private:
 
 private slots:
     void finishedSlot(QNetworkReply *);
+
 };
 
 #endif // MESSAGEPUSHER_H

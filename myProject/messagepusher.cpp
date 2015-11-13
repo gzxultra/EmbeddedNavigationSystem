@@ -37,8 +37,8 @@ bool messagePusher::pushMessage(QTextBrowser *textBrowser)
     qDebug() << post_data;
 
     QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
-    request.setHeader(QNetworkRequest::ContentLengthHeader, post_data.length());
+    // request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
+    // request.setHeader(QNetworkRequest::ContentLengthHeader, post_data.length());
 
     this->manager->post(request, post_data);
 

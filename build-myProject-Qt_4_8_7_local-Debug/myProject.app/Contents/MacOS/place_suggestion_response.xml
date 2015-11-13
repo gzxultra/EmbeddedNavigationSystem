@@ -3,95 +3,105 @@
   <status>0</status>
   <message>ok</message>
       <result>
-    					<name>it大道-道路</name>
+    					<name>北京天安瑞嘉酒店</name>
 		                    <location>
-                <lat>30.959752</lat>
-                <lng>103.6531</lng>
+                <lat>39.916113</lat>
+                <lng>116.413349</lng>
             </location>
-                            <uid>e39906c71003a249c51e51b2</uid>
-        		            <city>成都市</city>
-		                    <district></district>
+                            <uid>38e48037e2a0b450363a71aa</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
                             <business></business>
-                            <cityid>e39906c71003a249c51e51b2</cityid>
-            					<name>ito yokado</name>
+                            <cityid>38e48037e2a0b450363a71aa</cityid>
+            					<name>天安门</name>
 		                    <location>
-                <lat>30.676914</lat>
-                <lng>104.116169</lng>
+                <lat>39.915119</lat>
+                <lng>116.403963</lng>
             </location>
-                            <uid>0ce65c2df38585402d473360</uid>
-        		            <city>成都市</city>
-		                    <district>成华区</district>
+                            <uid>65e1ee886c885190f60e77ff</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
                             <business></business>
-                            <cityid>0ce65c2df38585402d473360</cityid>
-            					<name>电子城·it产业园</name>
+                            <cityid>65e1ee886c885190f60e77ff</cityid>
+            					<name>天安门广场</name>
 		                    <location>
-                <lat>39.987178</lat>
-                <lng>116.512667</lng>
+                <lat>39.912735</lat>
+                <lng>116.404015</lng>
             </location>
-                            <uid>e166ad2ef86e98f69c09f7a3</uid>
+                            <uid>c9b5fb91d49345bc5d0d0262</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
+                            <business></business>
+                            <cityid>c9b5fb91d49345bc5d0d0262</cityid>
+            					<name>都季商务快捷酒店</name>
+		                    <location>
+                <lat>39.91754</lat>
+                <lng>116.413533</lng>
+            </location>
+                            <uid>f60a15ed3d7c8ef5bb17e70a</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
+                            <business></business>
+                            <cityid>f60a15ed3d7c8ef5bb17e70a</cityid>
+            					<name>北京天安招待所</name>
+		                    <location>
+                <lat>39.90686</lat>
+                <lng>116.41422</lng>
+            </location>
+                            <uid>a7c56ee0419635aaa3acc406</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
+                            <business></business>
+                            <cityid>a7c56ee0419635aaa3acc406</cityid>
+            					<name>天安门西-地铁站</name>
+		                    <location>
+                <lat>39.913776</lat>
+                <lng>116.39805</lng>
+            </location>
+                            <uid>002975204d3b1e9b9968b4de</uid>
+        		            <city>北京市</city>
+		                    <district>西城区</district>
+                            <business></business>
+                            <cityid>002975204d3b1e9b9968b4de</cityid>
+            					<name>北京天安假日高尔夫</name>
+		                    <location>
+                <lat>40.003047</lat>
+                <lng>116.567474</lng>
+            </location>
+                            <uid>3dc9befd00a1fd0fbfa24084</uid>
         		            <city>北京市</city>
 		                    <district>朝阳区</district>
                             <business></business>
-                            <cityid>e166ad2ef86e98f69c09f7a3</cityid>
-            					<name>ito yokado</name>
+                            <cityid>3dc9befd00a1fd0fbfa24084</cityid>
+            					<name>天安门东-地铁站</name>
 		                    <location>
-                <lat>39.921504</lat>
-                <lng>116.511822</lng>
+                <lat>39.91408</lat>
+                <lng>116.407851</lng>
             </location>
-                            <uid>c7fb04bd4c340e0cfa0cad61</uid>
+                            <uid>940aeb3c98d5a0218a2fb5de</uid>
         		            <city>北京市</city>
-		                    <district>朝阳区</district>
+		                    <district>东城区</district>
                             <business></business>
-                            <cityid>c7fb04bd4c340e0cfa0cad61</cityid>
-            					<name>itoyokado</name>
+                            <cityid>940aeb3c98d5a0218a2fb5de</cityid>
+            					<name>北京天安中医医院</name>
 		                    <location>
-                <lat>30.557113</lat>
-                <lng>104.05011</lng>
+                <lat>39.963601</lat>
+                <lng>116.422894</lng>
             </location>
-                            <uid>9ee7cc7878fc356917c90595</uid>
-        		            <city>成都市</city>
-		                    <district>武侯区</district>
+                            <uid>e96b4420e748474083288aee</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
                             <business></business>
-                            <cityid>9ee7cc7878fc356917c90595</cityid>
-            					<name>itri工业技术研究院</name>
+                            <cityid>e96b4420e748474083288aee</cityid>
+            					<name>北京天安门皇家驿栈</name>
 		                    <location>
-                <lat>31.410161</lat>
-                <lng>120.90043</lng>
+                <lat>39.90311</lat>
+                <lng>116.406054</lng>
             </location>
-                            <uid>b5573fc56f41b7659d95ded7</uid>
-        		            <city>苏州市</city>
-		                    <district>昆山市</district>
+                            <uid>7e18c4d5f87301a0f1193737</uid>
+        		            <city>北京市</city>
+		                    <district>东城区</district>
                             <business></business>
-                            <cityid>b5573fc56f41b7659d95ded7</cityid>
-            					<name>it国际</name>
-		                    <location>
-                <lat>41.728734</lat>
-                <lng>123.45391</lng>
-            </location>
-                            <uid>7c5e480bf8b5dfc9adb22a7a</uid>
-        		            <city>沈阳市</city>
-		                    <district>东陵区</district>
-                            <business></business>
-                            <cityid>7c5e480bf8b5dfc9adb22a7a</cityid>
-            					<name>ito-massage伊都按摩(上海大剧场院)</name>
-		                    <location>
-                <lat>31.235349</lat>
-                <lng>121.4772</lng>
-            </location>
-                            <uid>de0a1fbe9add87303a13fdff</uid>
-        		            <city>上海市</city>
-		                    <district>黄浦区</district>
-                            <business></business>
-                            <cityid>de0a1fbe9add87303a13fdff</cityid>
-            					<name>ito yokado</name>
-		                    <location>
-                <lat>30.660798</lat>
-                <lng>104.085206</lng>
-            </location>
-                            <uid>bb1d38e476d932540c0a70c9</uid>
-        		            <city>成都市</city>
-		                    <district>锦江区</district>
-                            <business></business>
-                            <cityid>bb1d38e476d932540c0a70c9</cityid>
+                            <cityid>7e18c4d5f87301a0f1193737</cityid>
               </result>
 </PlaceSuggestionResponse>
