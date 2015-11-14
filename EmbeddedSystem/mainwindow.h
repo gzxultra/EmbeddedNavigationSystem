@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <httpmanager.h>
 #include <QDebug>
+#include <QDateTime>
 
 namespace Ui {
 class MainWindow;
@@ -23,7 +24,7 @@ private:
 
 
 private slots:
-    void pushTest();
+    void pushMessage();
     void placeSuggest();
 };
 

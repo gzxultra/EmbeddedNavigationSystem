@@ -19,9 +19,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    httpmanager.cpp
+    httpmanager.cpp \
+    xmlparser.cpp
 
 HEADERS  += mainwindow.h \
-    httpmanager.h
+    httpmanager.h \
+    xmlparser.h
 
 FORMS    += mainwindow.ui

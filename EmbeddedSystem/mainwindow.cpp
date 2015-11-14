@@ -16,13 +16,42 @@ MainWindow::~MainWindow()
 
 void MainWindow::placeSuggest()
 {
+    qDebug() << "placeSuggest is called.";
+    myManager.setMethod("placeSuggest");
+    myManager.setTextBrowser(ui->textBrowser);
+
+    QString input = ui->lineEdit->text();
+
+    QString region = QByteArray("全国").toPercentEncoding();
+
+    QByteArray originRequest = "http://api.map.baidu.com/place/v2/suggestion?";
+    originRequest.append("query=");
+    originRequest.append(input);
+    originRequest.append("&region=");
+    originRequest.append(region);
+    originRequest.append("&output=xml&ak=PAWBPVqwwomy8UBoeeUm9dfo");
+
+    myManager.setUrl(QUrl(originRequest));
+
+    myManager.placeSuggest();
+
 
 }
-void MainWindow::pushTest()
+void MainWindow::pushMessage()
 {
-    qDebug() << "I am called.";
+    qDebug() << "pushMessage is called.";
     myManager.setMethod(QString("pushMessage"));
     myManager.setTextBrowser(ui->textBrowser);
-    // set URL and Data
+    myManager.setLineEdit(ui->lineEdit);
+    myManager.setListWidget(ui->listWidget);
+    myManager.setUrl(QUrl("https://api.submail.cn/message/xsend.json"));
+
+    QByteArray postConstruction  = "appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5";
+    postConstruction.append("&vars={\"code\":\"");
+    postConstruction.append("Currently, I am still working on it. ");
+    postConstruction.append(QDateTime::currentDateTime().toString());
+    postConstruction.append("\"}");
+    myManager.setPostData(postConstruction);
+
     myManager.pushMessage();
 }

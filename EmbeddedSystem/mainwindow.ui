@@ -44,7 +44,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>PushMessage</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser">
@@ -117,7 +117,7 @@
    <sender>pushButton</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>pushTest()</slot>
+   <slot>pushMessage()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>446</x>
@@ -132,6 +132,6 @@
  </connections>
  <slots>
   <slot>placeSuggest()</slot>
-  <slot>pushTest()</slot>
+  <slot>pushMessage()</slot>
  </slots>
 </ui>
