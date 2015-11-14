@@ -81,7 +81,7 @@ void Widget::getBaiduWeather()
     nam->post(request, append);
 
     qDebug() << response;
-    QXmlStreamReader reader(response);
+    // QXmlStreamReader reader(response);
 
     QFile xmlFile("baiduweather.xml");
     if (!xmlFile.open(QIODevice::WriteOnly))
@@ -140,6 +140,7 @@ void Widget::finishedSlot(QNetworkReply *reply)
                   << std::endl;
     // emit finished();
     ui->textBrowser->setText(response);
+    qDebug() << reply->url();
     reply->deleteLater();
 
 

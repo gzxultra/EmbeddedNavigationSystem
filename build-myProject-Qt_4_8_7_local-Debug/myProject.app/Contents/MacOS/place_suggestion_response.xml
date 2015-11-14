@@ -3,105 +3,105 @@
   <status>0</status>
   <message>ok</message>
       <result>
-    					<name>北京天安瑞嘉酒店</name>
+    					<name>bhg mall(华联常营购物中心)</name>
 		                    <location>
-                <lat>39.916113</lat>
-                <lng>116.413349</lng>
+                <lat>39.932166</lat>
+                <lng>116.603434</lng>
             </location>
-                            <uid>38e48037e2a0b450363a71aa</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
-                            <business></business>
-                            <cityid>38e48037e2a0b450363a71aa</cityid>
-            					<name>天安门</name>
-		                    <location>
-                <lat>39.915119</lat>
-                <lng>116.403963</lng>
-            </location>
-                            <uid>65e1ee886c885190f60e77ff</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
-                            <business></business>
-                            <cityid>65e1ee886c885190f60e77ff</cityid>
-            					<name>天安门广场</name>
-		                    <location>
-                <lat>39.912735</lat>
-                <lng>116.404015</lng>
-            </location>
-                            <uid>c9b5fb91d49345bc5d0d0262</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
-                            <business></business>
-                            <cityid>c9b5fb91d49345bc5d0d0262</cityid>
-            					<name>都季商务快捷酒店</name>
-		                    <location>
-                <lat>39.91754</lat>
-                <lng>116.413533</lng>
-            </location>
-                            <uid>f60a15ed3d7c8ef5bb17e70a</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
-                            <business></business>
-                            <cityid>f60a15ed3d7c8ef5bb17e70a</cityid>
-            					<name>北京天安招待所</name>
-		                    <location>
-                <lat>39.90686</lat>
-                <lng>116.41422</lng>
-            </location>
-                            <uid>a7c56ee0419635aaa3acc406</uid>
-        		            <city>北京市</city>
-		                    <district>东城区</district>
-                            <business></business>
-                            <cityid>a7c56ee0419635aaa3acc406</cityid>
-            					<name>天安门西-地铁站</name>
-		                    <location>
-                <lat>39.913776</lat>
-                <lng>116.39805</lng>
-            </location>
-                            <uid>002975204d3b1e9b9968b4de</uid>
-        		            <city>北京市</city>
-		                    <district>西城区</district>
-                            <business></business>
-                            <cityid>002975204d3b1e9b9968b4de</cityid>
-            					<name>北京天安假日高尔夫</name>
-		                    <location>
-                <lat>40.003047</lat>
-                <lng>116.567474</lng>
-            </location>
-                            <uid>3dc9befd00a1fd0fbfa24084</uid>
+                            <uid>3da59ef82612245acb213d7e</uid>
         		            <city>北京市</city>
 		                    <district>朝阳区</district>
                             <business></business>
-                            <cityid>3dc9befd00a1fd0fbfa24084</cityid>
-            					<name>天安门东-地铁站</name>
+                            <cityid>3da59ef82612245acb213d7e</cityid>
+            					<name>bhg mall北京华联天通苑购物中心(太平兴园店)</name>
 		                    <location>
-                <lat>39.91408</lat>
-                <lng>116.407851</lng>
+                <lat>40.076426</lat>
+                <lng>116.421597</lng>
             </location>
-                            <uid>940aeb3c98d5a0218a2fb5de</uid>
+                            <uid>460843cbe715f27959bbbc55</uid>
         		            <city>北京市</city>
-		                    <district>东城区</district>
+		                    <district>昌平区</district>
                             <business></business>
-                            <cityid>940aeb3c98d5a0218a2fb5de</cityid>
-            					<name>北京天安中医医院</name>
+                            <cityid>460843cbe715f27959bbbc55</cityid>
+            					<name>北京华联(万柳购物中心)</name>
 		                    <location>
-                <lat>39.963601</lat>
-                <lng>116.422894</lng>
+                <lat>39.979197</lat>
+                <lng>116.301697</lng>
             </location>
-                            <uid>e96b4420e748474083288aee</uid>
+                            <uid>56f2f696928d04990ba8d4a9</uid>
         		            <city>北京市</city>
-		                    <district>东城区</district>
+		                    <district>海淀区</district>
                             <business></business>
-                            <cityid>e96b4420e748474083288aee</cityid>
-            					<name>北京天安门皇家驿栈</name>
+                            <cityid>56f2f696928d04990ba8d4a9</cityid>
+            					<name>bhgmall(华联上地购物中心)</name>
 		                    <location>
-                <lat>39.90311</lat>
-                <lng>116.406054</lng>
+                <lat>40.034659</lat>
+                <lng>116.317776</lng>
             </location>
-                            <uid>7e18c4d5f87301a0f1193737</uid>
+                            <uid>cb4fd1464608ca589d9d687b</uid>
         		            <city>北京市</city>
-		                    <district>东城区</district>
+		                    <district>海淀区</district>
                             <business></business>
-                            <cityid>7e18c4d5f87301a0f1193737</cityid>
+                            <cityid>cb4fd1464608ca589d9d687b</cityid>
+            					<name>北京华联(空港购物中心店)</name>
+		                    <location>
+                <lat>30.577161</lat>
+                <lng>103.993237</lng>
+            </location>
+                            <uid>1c06a5a6dc5c7fb11d1d112c</uid>
+        		            <city>成都市</city>
+		                    <district>双流县</district>
+                            <business></business>
+                            <cityid>1c06a5a6dc5c7fb11d1d112c</cityid>
+            					<name>华联生活超市(回龙观店)</name>
+		                    <location>
+                <lat>40.082306</lat>
+                <lng>116.325199</lng>
+            </location>
+                            <uid>07f3c8b55335077a6240a922</uid>
+        		            <city>北京市</city>
+		                    <district>昌平区</district>
+                            <business></business>
+                            <cityid>07f3c8b55335077a6240a922</cityid>
+            					<name>bhgmall(华联回龙观购物中心)</name>
+		                    <location>
+                <lat>40.081791</lat>
+                <lng>116.325883</lng>
+            </location>
+                            <uid>3186e7e9ac8ebebbb6f42fd4</uid>
+        		            <city>北京市</city>
+		                    <district>昌平区</district>
+                            <business></business>
+                            <cityid>3186e7e9ac8ebebbb6f42fd4</cityid>
+            					<name>bhgmall(华联公益西桥购物中心)</name>
+		                    <location>
+                <lat>39.840232</lat>
+                <lng>116.375789</lng>
+            </location>
+                            <uid>24d05508617452b613882483</uid>
+        		            <city>北京市</city>
+		                    <district>丰台区</district>
+                            <business></business>
+                            <cityid>24d05508617452b613882483</cityid>
+            					<name>bhgmall(华联五里河购物中心店)</name>
+		                    <location>
+                <lat>41.770806</lat>
+                <lng>123.439589</lng>
+            </location>
+                            <uid>dfc496b613f06cb68836eea2</uid>
+        		            <city>沈阳市</city>
+		                    <district>和平区</district>
+                            <business></business>
+                            <cityid>dfc496b613f06cb68836eea2</cityid>
+            					<name>华联生活超市(肖家河分店)</name>
+		                    <location>
+                <lat>40.022167</lat>
+                <lng>116.277235</lng>
+            </location>
+                            <uid>233760c04743dbb0246e9859</uid>
+        		            <city>北京市</city>
+		                    <district>海淀区</district>
+                            <business></business>
+                            <cityid>233760c04743dbb0246e9859</cityid>
               </result>
 </PlaceSuggestionResponse>

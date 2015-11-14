@@ -1,0 +1,27 @@
+#-------------------------------------------------
+#
+# Project created by QtCreator 2015-11-14T10:45:03
+#
+#-------------------------------------------------
+
+QT       += core gui
+QT       += sql
+QT       += network
+# QT       += xml
+QT       += webkit
+
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TARGET = EmbeddedSystem
+TEMPLATE = app
+
+
+SOURCES += main.cpp\
+        mainwindow.cpp \
+    httpmanager.cpp
+
+HEADERS  += mainwindow.h \
+    httpmanager.h
+
+FORMS    += mainwindow.ui

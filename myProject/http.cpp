@@ -23,7 +23,7 @@ void http::setUrl(QUrl myUrl)
     url = myUrl;
 }
 
-void finishedSlot(QNetworkReply *reply)
+void http::finishedSlot(QNetworkReply *reply)
 {
     qDebug() << reply->readAll();
 }
