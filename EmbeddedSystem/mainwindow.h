@@ -26,6 +26,7 @@ private:
 private slots:
     void pushMessage();
     void placeSuggest();
+    void showSelectedItem();
 };
 
 #endif // MAINWINDOW_H

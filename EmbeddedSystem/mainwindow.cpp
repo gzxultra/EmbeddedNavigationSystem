@@ -56,3 +56,15 @@ void MainWindow::pushMessage()
 
     myManager.pushMessage();
 }
+
+void MainWindow::showSelectedItem()
+{
+    ui->lineEdit->clear();
+    QListWidgetItem *item = ui->listWidget->currentItem();
+    qDebug() << item;
+    if(item != 0x0)
+        ui->lineEdit->setText(ui->listWidget->currentItem()->text());
+    else
+        qDebug() << "small glinches";
+    qDebug() << "set text successfully.";
+}
