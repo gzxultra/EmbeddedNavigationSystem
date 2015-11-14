@@ -9,7 +9,7 @@ void XmlParser::setShowWidget(QListWidget *list, QLineEdit *line)
 {
       this->listWidget = list;
       this->lineEdit = line;
-    qDebug() << "set output widget.";
+    // qDebug() << "set output widget.";
 }
 
 bool XmlParser::readFile(const QString &fileName)
@@ -132,7 +132,7 @@ void XmlParser::readResultElement()
 void XmlParser::readNameElement(QListWidget *parent, QLineEdit *line)
 {
   QString suggestion = reader.readElementText();
-  qDebug() << "we have come this far.";
+  // qDebug() << "we have come this far.";
   qDebug() << suggestion;
   QListWidgetItem *item = new QListWidgetItem;
   item->setText(suggestion);

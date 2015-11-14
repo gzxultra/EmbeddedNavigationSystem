@@ -4,7 +4,6 @@
 httpManager::httpManager(QObject *parent) : QObject(parent)
 {
     manager = new QNetworkAccessManager(this);
-
     if(QObject::connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishedSlot(QNetworkReply*))))
         qDebug("connected.");
 }
@@ -114,6 +113,7 @@ void httpManager::placeSuggestReplyHandler()
 {
     parser.setShowWidget(listWidget, lineEdit);
     // qDebug() << response;
+
     qDebug() << "in Place Suggest Reply Handler";
     textBrowser->setText(response);
 
@@ -130,7 +130,7 @@ void httpManager::placeSuggestReplyHandler()
 
     // xmlFile.close();
 
-    // listWidget->clear();
+    listWidget->clear();
     // bugs on listWidget.
     qDebug() << "start parse xml file.";
     parser.readFile("place_suggestion_response.xml");

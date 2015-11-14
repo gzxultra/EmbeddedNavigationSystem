@@ -19,6 +19,8 @@ void MainWindow::placeSuggest()
     qDebug() << "placeSuggest is called.";
     myManager.setMethod("placeSuggest");
     myManager.setTextBrowser(ui->textBrowser);
+    myManager.setLineEdit(ui->lineEdit);
+    myManager.setListWidget(ui->listWidget);
 
     QString input = ui->lineEdit->text();
 
@@ -42,8 +44,7 @@ void MainWindow::pushMessage()
     qDebug() << "pushMessage is called.";
     myManager.setMethod(QString("pushMessage"));
     myManager.setTextBrowser(ui->textBrowser);
-    myManager.setLineEdit(ui->lineEdit);
-    myManager.setListWidget(ui->listWidget);
+
     myManager.setUrl(QUrl("https://api.submail.cn/message/xsend.json"));
 
     QByteArray postConstruction  = "appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5";
