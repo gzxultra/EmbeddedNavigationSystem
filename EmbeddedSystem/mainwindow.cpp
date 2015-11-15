@@ -94,29 +94,35 @@ void MainWindow::getDriveSuggestion()
 
 void MainWindow::showHtml()
 {
-    ui->webView->load(QUrl("file:////Users/gzxultra/Documents/arm-thermometer-project" \
-                           "/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+    // ui->webView->setZoomFactor(1.0);
+    writeHtml();
+    ui->webView->load(QUrl("file:////Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+
 }
 
-void MainWindow::readHtml()
+void MainWindow::writeHtml()
 {
-    /*
-    QFile f("map.html");
-    if(!f.open(QIODevice::WriteOnly | QIODevice::Text))
+
+    QFile f("/Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html");
+    if(!f.open(QIODevice::ReadWrite | QIODevice::Text))
     {
-        cout << "Open failed." << endl;
+        std::cerr << "Open failed." << endl;
         return;
     }
 
     QTextStream txtOutput(&f);
-    QString s1("123");
-    quint32 n1(123);
+    QString html;
+    QString destination = ui->lineEdit->text();
 
-    txtOutput << s1 << endl;
-    txtOutput << n1 << endl;
+    html.append("transit.search(\"北京工业大学\", \"");
+    html.append(destination);
+    html.append("\");\n</script>");
+
+    txtOutput.seek(f.size());
+    txtOutput << "\n" << html;
 
     f.close();
-    */
+
 }
 
 void MainWindow::btn_clicked()
@@ -138,7 +144,7 @@ void MainWindow::btn_clicked()
     }
     else if (objectName == "btnReturn")
     {
-        getDriveSuggestion();
+        showHtml();
     }
 
 }

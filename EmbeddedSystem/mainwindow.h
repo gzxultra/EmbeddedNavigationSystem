@@ -29,7 +29,7 @@ private:
     void InitProperty();
     void getDriveSuggestion();
     // void writeHtml();
-    void readHtml();
+    void writeHtml();
 
 
 private slots:

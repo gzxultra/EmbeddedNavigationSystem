@@ -52,9 +52,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>610</x>
+      <x>660</x>
       <y>470</y>
-      <width>91</width>
+      <width>61</width>
       <height>21</height>
      </rect>
     </property>
@@ -81,7 +81,7 @@ QPushButton:default {
 }</string>
     </property>
     <property name="text">
-     <string>PushToPhone</string>
+     <string>message</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser">
@@ -637,7 +637,7 @@ QPushButton:default {
    <widget class="QLineEdit" name="telephoneInput">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>530</x>
       <y>470</y>
       <width>113</width>
       <height>21</height>
@@ -655,8 +655,14 @@ QPushButton:default {
     </property>
     <property name="url">
      <url>
-      <string>about:blank</string>
+      <string>http://bjut.edu.cn/</string>
      </url>
+    </property>
+    <property name="zoomFactor">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="renderHints">
+     <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing|QPainter::Qt4CompatiblePainting|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
     </property>
    </widget>
    <widget class="QPushButton" name="testButton">
