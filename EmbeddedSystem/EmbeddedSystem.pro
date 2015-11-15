@@ -27,3 +27,5 @@ HEADERS  += mainwindow.h \
     xmlparser.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES +=

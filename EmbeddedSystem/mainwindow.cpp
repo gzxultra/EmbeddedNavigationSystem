@@ -96,17 +96,17 @@ void MainWindow::showHtml()
 {
     // ui->webView->setZoomFactor(1.0);
     writeHtml();
-    ui->webView->load(QUrl("file:////Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+    ui->webView->load(QUrl("file:///:/html/map.html"));
 
 }
 
 void MainWindow::writeHtml()
 {
 
-    QFile f("/Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html");
+    QFile f(":/html/map.html");
     if(!f.open(QIODevice::ReadWrite | QIODevice::Text))
     {
-        std::cerr << "Open failed." << endl;
+        std::cerr << "Open failed.\n";
         return;
     }
 
