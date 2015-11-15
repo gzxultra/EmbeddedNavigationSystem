@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QHostInfo>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,7 +9,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->listWidget->hide();
     this->InitProperty();
-
+    /*
+    QString localHostName = QHostInfo::localHostName();
+    qDebug() <<"localHostName: "<<localHostName;
+    QHostInfo info = QHostInfo::fromName(localHostName);
+    qDebug() << "IP Address: "<<info.addresses();
+    */
     QList<QPushButton *> btn = this->findChildren<QPushButton *>();
     foreach (QPushButton * b, btn) {
         connect(b, SIGNAL(clicked()), this, SLOT(btn_clicked()));
@@ -86,8 +92,11 @@ void MainWindow::btn_clicked()
     if (objectName == "btnDelete")
     {
         ui->lineEdit->setText(ui->lineEdit->text().left(ui->lineEdit->text().length() - 1));
+    }else if (objectName == "btnSpace")
+    {
+        ui->lineEdit->setText(ui->lineEdit->text() + " ");
     }
-    if (btn->property("btnLetter").toBool())
+    else if(btn->property("btnLetter").toBool())
     {
         ui->lineEdit->setText(ui->lineEdit->text() + value);
     }

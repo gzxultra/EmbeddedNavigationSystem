@@ -9,6 +9,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QObject>
+#include <QtNetwork>
 
 class XmlParser : public QObject
 {
