@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QHostInfo>
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -54,13 +54,21 @@ void MainWindow::placeSuggest()
 }
 void MainWindow::pushMessage()
 {
+    QString telephoneNumber = ui->telephoneInput->text();
+    if (telephoneNumber.length() < 11)
+    {
+        QMessageBox::about(this,tr("提示信息"),tr("您输入的手机号有误！"));
+        return;
+    }
     qDebug() << "pushMessage is called.";
     myManager.setMethod(QString("pushMessage"));
     myManager.setTextBrowser(ui->textBrowser);
 
     myManager.setUrl(QUrl("https://api.submail.cn/message/xsend.json"));
 
-    QByteArray postConstruction  = "appid=10586&to=18651370755&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5";
+    QByteArray postConstruction  = "appid=10586&to=";
+    postConstruction.append(telephoneNumber);
+    postConstruction.append("&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
     postConstruction.append("&vars={\"code\":\"");
     postConstruction.append("Currently, I am still working on it. ");
     postConstruction.append(QDateTime::currentDateTime().toString());
@@ -68,6 +76,7 @@ void MainWindow::pushMessage()
     myManager.setPostData(postConstruction);
 
     myManager.pushMessage();
+    ui->telephoneInput->clear();
 }
 
 void MainWindow::showSelectedItem()

@@ -7,6 +7,7 @@
 #include <QDateTime>
 #include <QTextCodec>
 #include <vector>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;

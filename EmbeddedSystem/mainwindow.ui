@@ -52,14 +52,36 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>390</y>
+      <x>560</x>
+      <y>430</y>
       <width>113</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
+    min-width: 20px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+    </property>
     <property name="text">
-     <string>PushMessage</string>
+     <string>PushToPhone</string>
     </property>
    </widget>
    <widget class="QTextBrowser" name="textBrowser">
@@ -77,7 +99,7 @@
      <rect>
       <x>40</x>
       <y>510</y>
-      <width>631</width>
+      <width>641</width>
       <height>206</height>
      </rect>
     </property>
@@ -88,9 +110,12 @@
      </sizepolicy>
     </property>
     <property name="styleSheet">
-     <string notr="true">font: 75 12pt;</string>
+     <string notr="true">font:12pt;</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
      <property name="leftMargin">
       <number>0</number>
      </property>
@@ -117,6 +142,9 @@
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>Space</string>
        </property>
@@ -125,16 +153,28 @@
      <item row="1" column="9" colspan="2">
       <widget class="QPushButton" name="btnReturn">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
+       <property name="minimumSize">
+        <size>
+         <width>24</width>
+         <height>62</height>
+        </size>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>Return</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
@@ -565,6 +605,9 @@
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>Delete</string>
        </property>
@@ -581,12 +624,25 @@
        <property name="focusPolicy">
         <enum>Qt::NoFocus</enum>
        </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <property name="text">
         <string>Fn</string>
        </property>
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QLineEdit" name="telephoneInput">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>480</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
