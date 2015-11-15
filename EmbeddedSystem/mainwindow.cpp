@@ -9,12 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->listWidget->hide();
     this->InitProperty();
-    /*
-    QString localHostName = QHostInfo::localHostName();
-    qDebug() <<"localHostName: "<<localHostName;
-    QHostInfo info = QHostInfo::fromName(localHostName);
-    qDebug() << "IP Address: "<<info.addresses();
-    */
+
     QList<QPushButton *> btn = this->findChildren<QPushButton *>();
     foreach (QPushButton * b, btn) {
         connect(b, SIGNAL(clicked()), this, SLOT(btn_clicked()));
@@ -50,8 +45,8 @@ void MainWindow::placeSuggest()
 
     myManager.placeSuggest();
 
-
 }
+
 void MainWindow::pushMessage()
 {
     QString telephoneNumber = ui->telephoneInput->text();
@@ -92,6 +87,38 @@ void MainWindow::showSelectedItem()
     qDebug() << "set text successfully.";
 }
 
+void MainWindow::getDriveSuggestion()
+{
+
+}
+
+void MainWindow::showHtml()
+{
+    ui->webView->load(QUrl("file:////Users/gzxultra/Documents/arm-thermometer-project" \
+                           "/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+}
+
+void MainWindow::readHtml()
+{
+    /*
+    QFile f("map.html");
+    if(!f.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        cout << "Open failed." << endl;
+        return;
+    }
+
+    QTextStream txtOutput(&f);
+    QString s1("123");
+    quint32 n1(123);
+
+    txtOutput << s1 << endl;
+    txtOutput << n1 << endl;
+
+    f.close();
+    */
+}
+
 void MainWindow::btn_clicked()
 {
     QPushButton *btn = (QPushButton *)sender();
@@ -105,9 +132,13 @@ void MainWindow::btn_clicked()
     {
         ui->lineEdit->setText(ui->lineEdit->text() + " ");
     }
-    else if(btn->property("btnLetter").toBool())
+    else if (btn->property("btnLetter").toBool())
     {
         ui->lineEdit->setText(ui->lineEdit->text() + value);
+    }
+    else if (objectName == "btnReturn")
+    {
+        getDriveSuggestion();
     }
 
 }
@@ -141,10 +172,10 @@ void MainWindow::InitProperty()
     ui->btny->setProperty("btnLetter", true);
     ui->btnz->setProperty("btnLetter", true);
 
-    ui->btnDelete->setProperty("btnOther", true);
-    ui->btnReturn->setProperty("btnOther", true);
-    ui->btnSpace->setProperty("btnOther", true);
-    ui->btnFn->setProperty("btnOther", true);
+    ui->btnDelete->setProperty("btnCommand", true);
+    ui->btnReturn->setProperty("btnCommand", true);
+    ui->btnSpace->setProperty("btnCommand", true);
+    ui->btnFn->setProperty("btnCommand", true);
 
     ui->pushButton->setProperty("btnAction", true);
 }

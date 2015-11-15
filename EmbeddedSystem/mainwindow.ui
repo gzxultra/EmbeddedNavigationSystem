@@ -32,9 +32,9 @@
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>290</y>
-      <width>461</width>
+      <x>530</x>
+      <y>240</y>
+      <width>191</width>
       <height>21</height>
      </rect>
     </property>
@@ -42,9 +42,9 @@
    <widget class="QListWidget" name="listWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>310</y>
-      <width>461</width>
+      <x>530</x>
+      <y>260</y>
+      <width>191</width>
       <height>192</height>
      </rect>
     </property>
@@ -52,10 +52,10 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>430</y>
-      <width>113</width>
-      <height>41</height>
+      <x>610</x>
+      <y>470</y>
+      <width>91</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -87,10 +87,10 @@ QPushButton:default {
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>10</y>
-      <width>621</width>
-      <height>251</height>
+      <x>530</x>
+      <y>70</y>
+      <width>191</width>
+      <height>121</height>
      </rect>
     </property>
    </widget>
@@ -637,11 +637,39 @@ QPushButton:default {
    <widget class="QLineEdit" name="telephoneInput">
     <property name="geometry">
      <rect>
-      <x>560</x>
-      <y>480</y>
+      <x>490</x>
+      <y>470</y>
       <width>113</width>
       <height>21</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QWebView" name="webView">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>491</width>
+      <height>481</height>
+     </rect>
+    </property>
+    <property name="url">
+     <url>
+      <string>about:blank</string>
+     </url>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="testButton">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>200</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>show</string>
     </property>
    </widget>
   </widget>
@@ -666,6 +694,13 @@ QPushButton:default {
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKitWidgets/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
@@ -732,10 +767,27 @@ QPushButton:default {
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>testButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showHtml()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>646</x>
+     <y>310</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>363</x>
+     <y>381</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>placeSuggest()</slot>
   <slot>pushMessage()</slot>
   <slot>showSelectedItem()</slot>
+  <slot>showHtml()</slot>
  </slots>
 </ui>

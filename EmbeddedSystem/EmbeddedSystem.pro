@@ -8,7 +8,7 @@ QT       += core gui
 QT       += sql
 QT       += network
 # QT       += xml
-QT       += webkit
+QT += webkitwidgets
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets

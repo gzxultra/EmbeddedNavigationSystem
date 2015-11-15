@@ -8,6 +8,8 @@
 #include <QTextCodec>
 #include <vector>
 #include <QMessageBox>
+#include <QWebView>
+#include <QTextStream>
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +27,9 @@ public:
 private:
     Ui::MainWindow *ui;
     void InitProperty();
+    void getDriveSuggestion();
+    // void writeHtml();
+    void readHtml();
 
 
 private slots:
@@ -32,6 +37,7 @@ private slots:
     void placeSuggest();
     void showSelectedItem();
     void btn_clicked();
+    void showHtml();
 };
 
 #endif // MAINWINDOW_H
