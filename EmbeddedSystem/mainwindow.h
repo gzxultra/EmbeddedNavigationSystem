@@ -5,6 +5,7 @@
 #include <httpmanager.h>
 #include <QDebug>
 #include <QDateTime>
+#include <QTextCodec>
 
 namespace Ui {
 class MainWindow;

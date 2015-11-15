@@ -60,6 +60,7 @@ void MainWindow::pushMessage()
 void MainWindow::showSelectedItem()
 {
     ui->lineEdit->clear();
+    // QObject::disconnect(ui->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(placeSuggest()));
     QListWidgetItem *item = ui->listWidget->currentItem();
     qDebug() << item;
     if(item != 0x0)

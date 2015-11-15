@@ -285,5 +285,5 @@ void Widget::setHtmlData()
     QTextStream out(&html2Data);
     out << "helloworld!";
 
-    ui->webView->setHtml(htmlString);
+    // ui->webView->setHtml(htmlString);
 }
