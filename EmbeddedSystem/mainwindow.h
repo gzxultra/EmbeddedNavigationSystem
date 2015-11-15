@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QTextCodec>
+#include <vector>
 
 namespace Ui {
 class MainWindow;
@@ -22,12 +23,14 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void InitProperty();
 
 
 private slots:
     void pushMessage();
     void placeSuggest();
     void showSelectedItem();
+    void btn_clicked();
 };
 
 #endif // MAINWINDOW_H

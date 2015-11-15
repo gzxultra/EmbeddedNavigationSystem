@@ -7,6 +7,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->listWidget->hide();
+    this->InitProperty();
+
+    QList<QPushButton *> btn = this->findChildren<QPushButton *>();
+    foreach (QPushButton * b, btn) {
+        connect(b, SIGNAL(clicked()), this, SLOT(btn_clicked()));
+    }
+
 }
 
 MainWindow::~MainWindow()
@@ -68,4 +75,58 @@ void MainWindow::showSelectedItem()
     else
         qDebug() << "small glinches";
     qDebug() << "set text successfully.";
+}
+
+void MainWindow::btn_clicked()
+{
+    QPushButton *btn = (QPushButton *)sender();
+    QString objectName = btn->objectName();
+    QString value = btn->text();
+
+    if (objectName == "btnDelete")
+    {
+        ui->lineEdit->setText(ui->lineEdit->text().left(ui->lineEdit->text().length() - 1));
+    }
+    if (btn->property("btnLetter").toBool())
+    {
+        ui->lineEdit->setText(ui->lineEdit->text() + value);
+    }
+
+}
+
+void MainWindow::InitProperty()
+{
+    ui->btna->setProperty("btnLetter", true);
+    ui->btnb->setProperty("btnLetter", true);
+    ui->btnc->setProperty("btnLetter", true);
+    ui->btnd->setProperty("btnLetter", true);
+    ui->btne->setProperty("btnLetter", true);
+    ui->btnf->setProperty("btnLetter", true);
+    ui->btng->setProperty("btnLetter", true);
+    ui->btnh->setProperty("btnLetter", true);
+    ui->btni->setProperty("btnLetter", true);
+    ui->btnj->setProperty("btnLetter", true);
+    ui->btnk->setProperty("btnLetter", true);
+    ui->btnl->setProperty("btnLetter", true);
+    ui->btnm->setProperty("btnLetter", true);
+    ui->btnn->setProperty("btnLetter", true);
+    ui->btno->setProperty("btnLetter", true);
+    ui->btnp->setProperty("btnLetter", true);
+    ui->btnq->setProperty("btnLetter", true);
+    ui->btnr->setProperty("btnLetter", true);
+    ui->btns->setProperty("btnLetter", true);
+    ui->btnt->setProperty("btnLetter", true);
+    ui->btnu->setProperty("btnLetter", true);
+    ui->btnv->setProperty("btnLetter", true);
+    ui->btnw->setProperty("btnLetter", true);
+    ui->btnx->setProperty("btnLetter", true);
+    ui->btny->setProperty("btnLetter", true);
+    ui->btnz->setProperty("btnLetter", true);
+
+    ui->btnDelete->setProperty("btnOther", true);
+    ui->btnReturn->setProperty("btnOther", true);
+    ui->btnSpace->setProperty("btnOther", true);
+    ui->btnFn->setProperty("btnOther", true);
+
+    ui->pushButton->setProperty("btnAction", true);
 }
