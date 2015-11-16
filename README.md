@@ -1,5 +1,6 @@
 # Qt embedded software
 
+
 **Introduction:**
 基于ARM2410的百度地图导航和生活信息推荐系统：
 * 设计了支持触摸屏的软键盘，方便s3c2410的输入；
@@ -8,7 +9,8 @@
 * 用SUBMAIL API将获取到的线路信息推送到手机上。
 
 
-** How to Build:**
+**How to Build:**
+
 ```bash
 git clone https://github.com/gzxultra/arm-thermometer-project.git
 cd ./arm-thermometer-project/EmbeddedSystem
@@ -19,6 +21,7 @@ make
 
 
 **To Do List:**
+
 * 利用GPS传感器获取当前位置信息，替换出发地；
 * 获取周边生活信息推荐；
 * 修改推送内容;
@@ -27,6 +30,7 @@ make
 
 
 **snapshot:**
+
 Temporarily, it looks like that,
 but I'm still working on it.
 
