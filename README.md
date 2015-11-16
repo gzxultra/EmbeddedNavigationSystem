@@ -2,6 +2,7 @@
 
 
 **Introduction:**
+
 基于ARM2410的百度地图导航和生活信息推荐系统：
 * 设计了支持触摸屏的软键盘，方便s3c2410的输入；
 * 利用baidu placeSuggestion提供以用户键入字符为关键字的周边地址推荐；
@@ -11,12 +12,20 @@
 
 **How to Build:**
 
+On Macintosh or Linux：
 ```bash
 git clone https://github.com/gzxultra/arm-thermometer-project.git
 cd ./arm-thermometer-project/EmbeddedSystem
 qmake
 make
 ./EmbeddedSystem
+```
+
+on s3c2410cl board:
+```bash
+# Host
+/usr/local/Trolltech/embedded-4.4.0/bin/qmake
+make
 ```
 
 
