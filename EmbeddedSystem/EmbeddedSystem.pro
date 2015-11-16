@@ -29,4 +29,4 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 RESOURCES += \
-    web.qrc
+    resource.qrc

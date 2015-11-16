@@ -27,7 +27,6 @@ public:
 private:
     Ui::MainWindow *ui;
     void InitProperty();
-    void getDriveSuggestion();
     // void writeHtml();
     void writeHtml();
 

@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->listWidget->hide();
     this->InitProperty();
 
+    // Q_INIT_RESOURCE(web);
     QList<QPushButton *> btn = this->findChildren<QPushButton *>();
     foreach (QPushButton * b, btn) {
         connect(b, SIGNAL(clicked()), this, SLOT(btn_clicked()));
@@ -87,43 +88,46 @@ void MainWindow::showSelectedItem()
     qDebug() << "set text successfully.";
 }
 
-void MainWindow::getDriveSuggestion()
-{
-
-}
-
 void MainWindow::showHtml()
 {
     // ui->webView->setZoomFactor(1.0);
     writeHtml();
-    //ui->webView->load(QUrl("file:////Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
-    ui->webView->load(QUrl("file:///:/html/map.html"));
-    QString result = ui->webView->selectedText();
-    qDebug() << result;
+    qDebug() << "show Html.";
+    ui->webView->load(QUrl("file:///Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+    // ui->webView->load(QUrl("file:///qrc:/html/map.html"));
+    // QString result = ui->webView->selectedText();
+    // qDebug() << result;
 }
 
 void MainWindow::writeHtml()
 {
-    QFile f(":/html/map.html");
-    // QFile f("/Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html");
-    if(!f.open(QIODevice::ReadWrite | QIODevice::Text))
+    // QFile file(":/data/map.dat");
+    // qDebug() << file.symLinkTarget();
+
+    QFile file("/Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html");
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
         std::cerr << "Open failed.\n";
         return;
     }
-
-    QTextStream txtOutput(&f);
     QString html;
+
+
+    QTextStream txt(&file);
+    for (int i = 0; i <48; ++i){
+        html.append(txt.readLine());
+        html.append("\n");
+    }
     QString destination = ui->lineEdit->text();
 
     html.append("transit.search(\"北京工业大学\", \"");
     html.append(destination);
     html.append("\");\n</script>");
 
-    txtOutput.seek(f.size());
-    txtOutput << "\n" << html;
+    txt.seek(0);
+    txt << html;
 
-    f.close();
+    file.close();
 
 }
 

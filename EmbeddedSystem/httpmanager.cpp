@@ -119,7 +119,7 @@ void httpManager::placeSuggestReplyHandler()
 
 
     QFile xmlFile("place_suggestion_response.xml");
-    if (!xmlFile.open(QIODevice::WriteOnly))
+    if (!xmlFile.open(QIODevice::WriteOnly | QIODevice::Text))
     {
         std::cerr << "Cannot open file for writing:" << qPrintable(xmlFile.errorString()) << std::endl;
         return;
