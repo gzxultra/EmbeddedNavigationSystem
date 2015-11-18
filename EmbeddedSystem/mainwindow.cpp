@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :
     foreach (QPushButton * b, btn) {
         connect(b, SIGNAL(clicked()), this, SLOT(btn_clicked()));
     }
-
 }
 
 MainWindow::~MainWindow()
@@ -50,8 +49,9 @@ void MainWindow::placeSuggest()
 
 void MainWindow::pushMessage()
 {
+    myManager.setMainWindow(this);
     QString telephoneNumber = ui->telephoneInput->text();
-    if (telephoneNumber.length() < 11)
+    if (telephoneNumber.length() != 11)
     {
         QMessageBox::about(this,tr("提示信息"),tr("您输入的手机号有误！"));
         return;
@@ -66,6 +66,8 @@ void MainWindow::pushMessage()
     postConstruction.append(telephoneNumber);
     postConstruction.append("&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
     postConstruction.append("&vars={\"code\":\"");
+    myDebug();
+    postConstruction.append(this->suggestions);
     postConstruction.append("Currently, I am still working on it. ");
     postConstruction.append(QDateTime::currentDateTime().toString());
     postConstruction.append("\"}");
@@ -95,8 +97,6 @@ void MainWindow::showHtml()
     qDebug() << "show Html.";
     ui->webView->load(QUrl("file:///Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
     // ui->webView->load(QUrl("file:///qrc:/html/map.html"));
-    // QString result = ui->webView->selectedText();
-    // qDebug() << result;
 }
 
 void MainWindow::writeHtml()
@@ -112,9 +112,8 @@ void MainWindow::writeHtml()
     }
     QString html;
 
-
     QTextStream txt(&file);
-    for (int i = 0; i <48; ++i){
+    for (int i = 0; i <=48; ++i){
         html.append(txt.readLine());
         html.append("\n");
     }
@@ -128,7 +127,6 @@ void MainWindow::writeHtml()
     txt << html;
 
     file.close();
-
 }
 
 void MainWindow::btn_clicked()
@@ -152,6 +150,18 @@ void MainWindow::btn_clicked()
     {
         showHtml();
     }
+
+}
+
+void MainWindow::myDebug()
+{
+    qDebug() << "get suggestions.";
+    QString buff = ui->webView->page()->mainFrame()->toPlainText();
+    buff = buff.replace("©", "");
+    buff = buff.replace("&", "");
+    buff = buff.replace("\n", " ");
+    suggestions = buff.trimmed();
+    qDebug() << suggestions;
 
 }
 
@@ -189,5 +199,5 @@ void MainWindow::InitProperty()
     ui->btnSpace->setProperty("btnCommand", true);
     ui->btnFn->setProperty("btnCommand", true);
 
-    ui->pushButton->setProperty("btnAction", true);
+    ui->messageButton->setProperty("btnAction", true);
 }

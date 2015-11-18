@@ -9,6 +9,7 @@
 #include <vector>
 #include <QMessageBox>
 #include <QWebView>
+#include <QWebFrame>
 #include <QTextStream>
 
 namespace Ui {
@@ -29,6 +30,7 @@ private:
     void InitProperty();
     // void writeHtml();
     void writeHtml();
+    QString suggestions;
 
 
 private slots:
@@ -37,6 +39,7 @@ private slots:
     void showSelectedItem();
     void btn_clicked();
     void showHtml();
+    void myDebug();
 };
 
 #endif // MAINWINDOW_H

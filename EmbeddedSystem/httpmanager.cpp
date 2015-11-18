@@ -107,6 +107,12 @@ void httpManager::pushMessageReplyHandler()
 {
     textBrowser->setText(response);
     qDebug() << response;
+    QMessageBox::about(mainWindow, tr("提示信息"), tr("短信发送成功"));
+}
+
+void httpManager::setMainWindow(QMainWindow *myMainWindow)
+{
+    this->mainWindow = myMainWindow;
 }
 
 void httpManager::placeSuggestReplyHandler()

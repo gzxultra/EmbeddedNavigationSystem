@@ -16,6 +16,8 @@
 #include <QListWidget>
 #include <QLineEdit>
 #include "xmlparser.h"
+#include <QMessageBox>
+#include <QMainWindow>
 
 class httpManager : public QObject
 {
@@ -33,6 +35,7 @@ public:
     void setTextBrowser(QTextBrowser *myTextBrowser);
     void setListWidget(QListWidget *myListWidget);
     void setLineEdit(QLineEdit *myLineEdit);
+    void setMainWindow(QMainWindow *myMainWindow);
     XmlParser parser;
 
 signals:
@@ -54,6 +57,7 @@ private:
     QListWidget *listWidget;
     QLineEdit *lineEdit;
     QString response;
+    QMainWindow *mainWindow;
 
     // ...
 };
