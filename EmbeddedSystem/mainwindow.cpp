@@ -95,16 +95,21 @@ void MainWindow::showHtml()
     // ui->webView->setZoomFactor(1.0);
     writeHtml();
     qDebug() << "show Html.";
-    ui->webView->load(QUrl("file:///Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html"));
+    QString currentPath = QDir::currentPath();
+    currentPath = "file:///" + currentPath + "/map.html";
+    qDebug() << "html path: " << currentPath;
+    ui->webView->load(QUrl(currentPath));
+
     // ui->webView->load(QUrl("file:///qrc:/html/map.html"));
 }
 
 void MainWindow::writeHtml()
 {
-    // QFile file(":/data/map.dat");
-    // qDebug() << file.symLinkTarget();
+    QString currentPath = QDir::currentPath();
+    currentPath = currentPath + "/map.html";
+    qDebug() << "file path: " << currentPath;
 
-    QFile file("/Users/gzxultra/Documents/arm-thermometer-project/build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/EmbeddedSystem.app/Contents/MacOS/map.html");
+    QFile file(currentPath);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
         std::cerr << "Open failed.\n";

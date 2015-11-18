@@ -5,11 +5,10 @@
 #-------------------------------------------------
 
 QT       += core gui
-QT       += sql
 QT       += network
 # QT       += xml
 QT += webkitwidgets
-
+QT += webkit
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
