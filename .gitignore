@@ -25,9 +25,10 @@ ui_*.h
 Makefile*
 *-build-*
 
-# debug build for myPorject
-build-myProject-Qt_4_8_7_local-Debug/
-build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-Debug/
+# builds for myPorject
+build-EmbeddedSystem-Desktop_Qt_5_4_2_clang_64bit-release/
+build-EmbeddedSystem-Qt_4_8_7_local-Debug/
+build-EmbeddedSystem-Qt_4_8_7_local-Release/
 myProject/
 
 # QtCreator
