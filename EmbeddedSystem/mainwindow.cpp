@@ -92,7 +92,7 @@ void MainWindow::showSelectedItem()
 
 void MainWindow::showHtml()
 {
-    // ui->webView->setZoomFactor(1.0);
+    ui->webView->setZoomFactor(1.0);
     writeHtml();
     qDebug() << "show Html.";
     QString currentPath = QDir::currentPath();

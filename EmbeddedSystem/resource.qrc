@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/data">
         <file>map.dat</file>
+        <file>splash.jpg</file>
     </qresource>
 </RCC>

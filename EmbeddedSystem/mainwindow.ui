@@ -664,11 +664,11 @@
      </property>
      <property name="url">
       <url>
-       <string>http://bjut.edu.cn/</string>
+       <string>http://www.bjut.edu.cn/xxgk/xxjj/15140.shtml</string>
       </url>
      </property>
      <property name="zoomFactor">
-      <double>1.000000000000000</double>
+      <double>1.200000047683716</double>
      </property>
      <property name="renderHints">
       <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
