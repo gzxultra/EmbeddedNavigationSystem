@@ -670,9 +670,6 @@
      <property name="zoomFactor">
       <double>1.200000047683716</double>
      </property>
-     <property name="renderHints">
-      <set>QPainter::Antialiasing|QPainter::HighQualityAntialiasing|QPainter::SmoothPixmapTransform|QPainter::TextAntialiasing</set>
-     </property>
     </widget>
    </widget>
   </widget>
