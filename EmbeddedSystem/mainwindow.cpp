@@ -64,7 +64,7 @@ void MainWindow::pushMessage()
 
     QByteArray postConstruction  = "appid=10586&to=";
     postConstruction.append(telephoneNumber);
-    postConstruction.append("&project=d7skN4&signature=0bd4add5f563accb8f04f8b835e453f5");
+    postConstruction.append("&project=d7skN4&signature=8202eb5e44a5519cd0b989a696a60cec");
     postConstruction.append("&vars={\"code\":\"");
     myDebug();
     postConstruction.append(this->suggestions);
