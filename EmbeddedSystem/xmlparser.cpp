@@ -31,8 +31,6 @@ bool XmlParser::readFile(const QString &fileName)
 	qDebug() << "set file as device.";
 	reader.setDevice(&file);
 
-
-
 	reader.readNext();
 
 	while (!reader.atEnd())

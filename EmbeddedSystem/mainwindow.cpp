@@ -95,12 +95,15 @@ void MainWindow::showHtml()
     ui->webView->setZoomFactor(1.0);
     writeHtml();
     qDebug() << "show Html.";
+
     QString currentPath = QDir::currentPath();
     currentPath = "file:///" + currentPath + "/map.html";
     qDebug() << "html path: " << currentPath;
+
     ui->webView->load(QUrl(currentPath));
 
-    // ui->webView->load(QUrl("file:///qrc:/html/map.html"));
+
+    //ui->webView->load(QUrl("file://qrc:/data/map.html"));
 }
 
 void MainWindow::writeHtml()
@@ -109,6 +112,8 @@ void MainWindow::writeHtml()
     currentPath = currentPath + "/map.html";
     qDebug() << "file path: " << currentPath;
 
+
+    //QFile file("qrc:/data/map.html");
     QFile file(currentPath);
     if (!file.open(QIODevice::ReadWrite | QIODevice::Text))
     {
