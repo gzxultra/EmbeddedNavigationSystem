@@ -13,47 +13,36 @@
 
 > 主界面：
 
-![picture](http://i12.tietuku.com/d3c9670ccee3e78e.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-0.jpg?raw=true)
 
 > 外设键盘/软键盘 输入拼音，提供周边地点推荐：
 
-![picture](http://i12.tietuku.com/354a95e7b8538104.jpg)
-
-> 支持中文字符关键字（UTF-8）
-
-![picture](http://i12.tietuku.com/f7c5e7055deadf9d.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-2.jpg?raw=true)
 
 > 支持拼音关键字：
 
-![picture](http://i12.tietuku.com/94b14d056cd96592.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-1.jpg?raw=true)
 
-> 软键盘示意图：
+> 触摸屏选取起点（默认使用GPS地址）：
 
-![picture](http://i12.tietuku.com/2ba6e28fa560856a.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-4.jpg?raw=true)
 
 > 给出以北京工业大学到指定地点的最佳乘车路线:
 
-![picture](http://i12.tietuku.com/4c5d82a10cc60a76.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-5.jpg?raw=true)
 
-> Debug窗口显示每次HTTP请求Reply信息:
-
-![picture](http://i12.tietuku.com/695de3a3161f61be.jpg)
 
 > 浏览器窗口下拉给出详细公交路线文字说明:
 
-![picture](http://i12.tietuku.com/9e9e2671adb5ae33.jpg)
-
-> 如果输入为空或者号码不是11位则弹窗提示：
-
-![picture](http://i12.tietuku.com/f8ee605314f5357e.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-6.jpg?raw=true)
 
 > 短信发送成功：
 
-![picture](http://i12.tietuku.com/f677108c40b44d68.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/20151118-9.jpg?raw=true)
 
 > 导航信息推送到手机，示意图：
 
-![picture](http://i12.tietuku.com/0c90dc0ea1fae4a4.jpg)
+![picture](https://github.com/gzxultra/EmbeddedNavigationSystem/blob/master/demo/text.jpg?raw=true)
 
 
 
